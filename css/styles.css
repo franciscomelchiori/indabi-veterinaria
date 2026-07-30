@@ -856,3 +856,75 @@ html, body {
         text-align: center; /* Centrado en móviles para mejor estética */
     }
 }
+
+/* ==========================================
+   BLOQUE 11: TARJETA DUCHENE
+   ========================================== */
+.seccion-duchene {
+  padding: 30px 0;
+}
+
+.tarjeta-duchene {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1.5px dotted #c25283; /* Borde punteado en tono rosa/magenta */
+  border-radius: 20px;         /* Bordes redondeados */
+  padding: 20px 35px;
+  background-color: #ffffff;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+/* Icono izquierdo (Camioncito) */
+.tarjeta-icono img {
+  max-width: 90px;
+  height: auto;
+  display: block;
+}
+
+/* Bloque central de texto */
+.tarjeta-contenido {
+  flex: 1;
+}
+
+.tarjeta-contenido h2 {
+  color: #6b357b;              /* Violeta/púrpura del título */
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  line-height: 1.2;
+}
+
+.tarjeta-contenido p {
+  color: #333333;
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.tarjeta-contenido strong {
+  font-weight: 700;
+  color: #111111;
+}
+
+/* Logo derecho */
+.tarjeta-logo img {
+  max-width: 190px;
+  height: auto;
+  display: block;
+}
+
+/* Adaptación responsive para celulares */
+@media (max-width: 768px) {
+  .tarjeta-duchene {
+    flex-direction: column;
+    text-align: center;
+    padding: 25px 15px;
+  }
+  
+  .tarjeta-icono img,
+  .tarjeta-logo img {
+    margin: 0 auto;
+  }
+}
