@@ -1,4 +1,4 @@
-/* --- RESET GENERAL Y BASES --- */
+/* --- RESET GENERAL Y FRENO GLOBAL --- */
 * {
     margin: 0;
     padding: 0;
@@ -17,31 +17,7 @@ body {
     overflow-x: hidden;
 }
 
-/* --- REGLA GLOBAL UNIFICADA DE ESPACIADO DE SECCIONES --- */
-section {
-    margin-bottom: 50px;
-}
-
-.container-1200 {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-    overflow: hidden;
-}
-
-/* LÍNEA SEPARADORA PERSONALIZADA SOLO PARA MOBILE */
-.linea-separadora-mobile {
-    display: none;
-    border: none;
-    border-top: 1px solid #e0e0e0;
-    margin: 30px auto;
-    width: 100%;
-    max-width: 1200px;
-}
-
-/* --- MENÚ DE NAVEGACIÓN COMPLETO VIOLETA --- */
+/* --- MENÚ DE NAVEGACIÓN COMPLETO VIOLETA (FIXED) --- */
 .navbar-indabi {
   position: fixed;
   top: 0;
@@ -91,6 +67,7 @@ section {
   color: #ffffff;
 }
 
+/* --- BOTÓN DESTACADO: Resultados Online --- */
 .nav-menu li a.btn-resultados {
   background-color: #ffffff;
   color: #6b357b;
@@ -101,6 +78,13 @@ section {
   border: 2px solid #ffffff;
 }
 
+.nav-menu li a.btn-resultados:hover {
+  background-color: #f3e8f4;
+  color: #4a154b;
+  transform: translateY(-1px);
+}
+
+/* Botón Hamburguesa (Mobile) */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -119,9 +103,20 @@ section {
   height: 3px;
   background-color: #ffffff;
   border-radius: 2px;
+  transition: all 0.3s ease;
 }
 
-/* --- BLOQUE 1: HEADER Y PORTADA --- */
+/* --- CONTENEDOR MAESTRO DE 1200PX --- */
+.container-1200 {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* --- ESTILOS BLOQUE 1: HEADER Y FONDOS --- */
 .hero-header {
     background-image: url('../img/head_icons.png'), url('../img/head_gradiente.png');
     background-position: center bottom, center top;
@@ -163,6 +158,7 @@ section {
     display: block;
 }
 
+/* --- BANDERÍN ANIVERSARIO --- */
 .banner-aniversario {
     text-align: left;
     padding: 20px 0;
@@ -171,13 +167,13 @@ section {
 .banner-aniversario h3 {
     color: #b5005b;
     font-size: 1.3rem;
-    font-weight: 400;
+    font-weight: 800;
     line-height: 1.45;
 }
 
 /* --- BLOQUE 2: ÁREAS DE SERVICIO --- */
 .areas-servicio {
-    padding: 15px 0;
+    padding: 15px 0 35px 0;
 }
 
 .grilla-areas {
@@ -229,20 +225,26 @@ section {
     line-height: 1.2;
 }
 
+/* --- CINTA SEPARADORA --- */
 .cinta-separadora {
     height: 28px;
     background: linear-gradient(90deg, #b5005b 0%, #6b2d7d 100%);
-    margin: 10px 0 30px 0;
+    margin: 25px 0 40px 0;
     border-radius: 2px;
     width: 100%;
 }
 
 /* --- BLOQUE 3: CONSULTORÍA Y APP --- */
+.seccion-consultoria {
+    padding-bottom: 60px;
+    width: 100%;
+}
+
 .header-seccion {
     display: flex;
     align-items: center;
     gap: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .icono-servicio {
@@ -308,7 +310,7 @@ section {
 
 .box-consultoria {
     background-color: #f7f7f7;
-    border-radius: 20px;
+    border-radius: 28px;
     padding: 35px 30px;
     width: 100%;
 }
@@ -344,7 +346,7 @@ section {
 .seccion-certificacion {
     width: 100%;
     background-color: #0b62a4;
-    padding: 50px 0;
+    padding: 60px 0;
     color: #ffffff;
 }
 
@@ -365,7 +367,7 @@ section {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 12px;
+    border-radius: 4px;
 }
 
 .col-info-iso {
@@ -402,14 +404,20 @@ section {
 }
 
 /* --- BLOQUE 5: DETERMINACIONES --- */
+.seccion-determinaciones {
+    padding-top: 60px;
+    padding-bottom: 30px;
+}
+
 .card-determinaciones {
     background-color: #f5f5f7;
-    border-radius: 20px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     overflow: hidden;
     gap: 20px;
+    margin: 30px 0;
 }
 
 .col-celular-planilla {
@@ -459,14 +467,13 @@ section {
     display: block;
 }
 
-/* ==========================================
-   ESTÁNDAR GLOBAL DE GRILLA DE 3 TARJETAS
-   ========================================== */
+/* --- BLOQUE 6: GRILLAS Y TARJETAS --- */
 .indabi-grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    gap: 24px;
     width: 100%;
+    margin: 0 0 60px 0;
 }
 
 .indabi-card {
@@ -481,7 +488,7 @@ section {
     overflow: hidden;
     background-color: #f0f0f0;
     margin-bottom: 16px;
-    border-radius: 20px;
+    border-radius: 6px;
 }
 
 .card-image img {
@@ -489,7 +496,6 @@ section {
     height: 100%;
     object-fit: cover;
     display: block;
-    border-radius: 20px;
 }
 
 .card-title {
@@ -508,15 +514,22 @@ section {
 }
 
 /* --- BLOQUE 7: SECCIÓN HORARIO --- */
+.seccion-horario {
+    padding-top: 20px;
+    padding-bottom: 60px;
+    width: 100%;
+}
+
 .grilla-horario {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 28px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
     width: 100%;
 }
 
 .col-horario-foto {
-    border-radius: 20px;
+    grid-column: span 2;
+    border-radius: 12px;
     overflow: hidden;
     display: flex;
 }
@@ -526,21 +539,20 @@ section {
     height: 100%;
     object-fit: cover;
     display: block;
-    border-radius: 20px;
 }
 
 .col-horario-card {
+    grid-column: span 1;
     background-color: #6b2670;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    border-radius: 20px;
+    border-radius: 12px;
     padding: 35px 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     color: #ffffff;
-    min-height: 320px;
 }
 
 .horario-icono-box {
@@ -548,13 +560,13 @@ section {
 }
 
 .img-horario-icono {
-    max-width: 110px;
+    max-width: 130px;
     height: auto;
     display: block;
 }
 
 .horario-texto-box h2 {
-    font-size: 1.45rem;
+    font-size: 1.5rem;
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 14px;
@@ -573,15 +585,16 @@ section {
     width: 100%;
     background-color: #6d4b7e;
     border-top: 6px solid #b5005b;
-    padding: 50px 0;
+    padding: 60px 0;
+    margin-top: 40px;
 }
 
-.titulo-equipamiento {
-    color: #ffffff;
-    font-size: 1.85rem;
-    font-weight: 800;
-    margin-bottom: 30px;
-    text-align: left;
+.seccion-equipamiento .indabi-grid-container {
+    margin-bottom: 0;
+}
+
+.imagen-equipo {
+    border-radius: 20px;
 }
 
 .texto-blanco {
@@ -593,10 +606,16 @@ section {
 }
 
 /* --- BLOQUE CONVENIO UNER --- */
+.seccion-convenio {
+    padding-top: 40px;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
 .card-convenio {
     background-color: #f7f7f8;
-    border-radius: 20px;
-    padding: 40px;
+    border-radius: 28px;
+    padding: 48px 40px;
 }
 
 .convenio-title {
@@ -604,7 +623,7 @@ section {
     font-size: 1.35rem;
     font-weight: 700;
     line-height: 1.4;
-    margin-bottom: 30px;
+    margin-bottom: 36px;
 }
 
 .convenio-title .texto-magenta {
@@ -633,13 +652,23 @@ section {
     font-weight: 500;
 }
 
-/* --- TARJETA POSTER AGUA --- */
+/* --- OTRAS TARJETAS Y POSTER AGUA --- */
+.seccion-otras-tarjetas {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width: 100%;
+}
+
+.imagen-redondeada-20 {
+    border-radius: 20px;
+}
+
 .tarjeta-poster-agua {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 20px;
-    min-height: 380px;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -675,7 +704,7 @@ section {
 }
 
 /* ==========================================
-   SECCIÓN FOOTER INDABI
+   SECCIÓN FOOTER INDABI (REDISEÑADO)
    ========================================== */
 .seccion-footer-indabi {
   width: 100%;
@@ -685,6 +714,7 @@ section {
   background-color: #ffffff;
 }
 
+/* Hero Banner con Texto Centrado Ajustado */
 .footer-hero-banner {
   position: relative;
   width: 100%;
@@ -693,16 +723,16 @@ section {
 
 .footer-hero-title {
   position: absolute;
-  top: 15%;
+  top: 18%; /* Bajado para centrar mejor en el aire violeta superior */
   left: 50%;
   transform: translateX(-50%);
   color: #ffffff;
-  font-size: 28px;
+  font-size: 32px; /* Más grande en Desktop */
   font-weight: 800;
-  width: 95%;
-  white-space: nowrap;
+  width: 90%;
   z-index: 2;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  line-height: 1.25;
 }
 
 .footer-hero-img {
@@ -711,24 +741,23 @@ section {
   display: block;
 }
 
+/* Pilares en 3 Columnas */
 .footer-pilares-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  padding: 40px 20px 30px 20px;
-  justify-items: center;
+  padding: 35px 20px 25px 20px;
 }
 
 .pilar-item {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  max-width: 320px;
 }
 
 .pilar-flecha {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -746,11 +775,57 @@ section {
   color: #444444;
 }
 
-.footer-bottom-row {
+/* Bloque QR Alineado a la Izquierda */
+.footer-qr-block {
   border-top: 1px dashed #cccccc;
   border-bottom: 1px dashed #cccccc;
-  padding: 30px 20px;
-  margin: 10px 0 40px 0;
+  padding: 24px 20px;
+  margin: 15px 0;
+  display: flex;
+  justify-content: flex-start; /* Alinea todo a la izquierda */
+  background-color: #ffffff;
+}
+
+.qr-group-left {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.qr-left-text {
+  font-size: 13px;
+  line-height: 1.35;
+  font-weight: 700;
+  max-width: 180px;
+  color: #333333;
+}
+
+.qr-img {
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.qr-list-container {
+  display: flex;
+  gap: 30px;
+  font-size: 12.5px;
+  color: #444444;
+}
+
+.qr-list-container ul {
+  padding-left: 15px;
+  list-style-type: disc;
+}
+
+.qr-list-container li {
+  margin-bottom: 4px;
+}
+
+/* Contacto y Logo en Una Sola Fila Horizontal */
+.footer-contact-block {
+  padding: 25px 20px 35px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -762,43 +837,18 @@ section {
 }
 
 .footer-logo-img {
-  max-width: 155px;
+  max-width: 210px;
   height: auto;
   display: block;
 }
 
-.qr-simple-block {
+.footer-info-row {
   display: flex;
   align-items: center;
-  gap: 15px;
-  max-width: 310px;
-}
-
-.qr-img {
-  width: 75px;
-  height: 75px;
-  object-fit: contain;
-  flex-shrink: 0;
-}
-
-.qr-text-simple {
-  font-size: 12.5px;
-  line-height: 1.35;
-  font-weight: 700;
-  color: #333333;
-}
-
-.footer-contact-cols {
-  display: flex;
-  gap: 25px;
+  flex-wrap: nowrap; /* Fuerza a estar en una sola fila en desktop */
+  gap: 18px;
   font-size: 12px;
   color: #444444;
-}
-
-.contact-col {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
 }
 
 .contact-item {
@@ -809,8 +859,8 @@ section {
 }
 
 .contact-icon {
-  width: 14px;
-  height: 14px;
+  width: 15px;
+  height: 15px;
   object-fit: contain;
   flex-shrink: 0;
 }
@@ -820,123 +870,118 @@ section {
   text-decoration: none;
 }
 
+.contact-item a:hover {
+  text-decoration: underline;
+}
+
+.only-mobile {
+  display: none;
+}
+
 /* ==========================================
-   AJUSTES RESPONSIVE UNIFICADOS Y CORREGIDOS (MOBILE)
+   ADAPTACIÓN RESPONSIVE (MEDIA QUERIES)
    ========================================== */
-@media (max-width: 850px) {
-    /* ACTIVA LA LÍNEA SEPARADORA SÓLO EN MOBILE */
-    .linea-separadora-mobile {
-        display: block;
+@media (max-width: 1024px) {
+  .nav-container {
+    justify-content: flex-end;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #582866;
+    flex-direction: column;
+    padding: 16px 20px;
+    gap: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    display: none;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-menu li {
+    width: 100%;
+  }
+
+  .nav-menu li a {
+    width: 100%;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+  }
+
+  .footer-info-row {
+    flex-wrap: wrap; /* En tablets permite bajar ordenado */
+    gap: 12px 18px;
+  }
+}
+
+@media (max-width: 992px) {
+    .header-seccion {
+        flex-direction: column;
+        text-align: left;
     }
 
-    /* ESPACIADO ENTRE SECCIONES */
-    section {
-        margin-bottom: 35px;
+    .grilla-consultoria {
+        flex-direction: column;
+        gap: 30px;
     }
 
-    /* MENÚ HAMBURGUESA */
-    .nav-container {
-      justify-content: flex-end;
+    .col-app {
+        max-width: 100%;
+        flex: 1;
     }
 
-    .hamburger {
-      display: flex !important;
+    .grilla-certificacion {
+        flex-direction: column;
     }
 
-    .nav-menu {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      background-color: #582866;
-      flex-direction: column;
-      padding: 16px 20px;
-      gap: 10px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
-      display: none;
+    .col-foto-lab, .sello-iram-box {
+        max-width: 100%;
     }
 
-    .nav-menu.active {
-      display: flex !important;
-    }
-
-    .nav-menu li {
-      width: 100%;
-    }
-
-    .nav-menu li a {
-      width: 100%;
-      justify-content: center;
-      background-color: rgba(255, 255, 255, 0.08);
-      padding: 12px 16px;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-    }
-
-    /* REGLA UNIFICADA DE TARJETAS EN MOBILE CON LÍNEA SEPARADORA SUPERIOR */
-    .indabi-grid-container {
-        grid-template-columns: 1fr !important;
-        gap: 0 !important;
-    }
-
-    .indabi-card {
-        padding-top: 25px;
-        margin-top: 25px;
-        border-top: 1px solid #e0e0e0;
-    }
-
-    .indabi-grid-container .indabi-card:first-child {
-        border-top: none;
-        padding-top: 0;
-        margin-top: 0;
-    }
-
-    .seccion-equipamiento .indabi-card {
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .seccion-equipamiento .indabi-grid-container .indabi-card:first-child {
-        border-top: none;
-    }
-
-    /* SECCIÓN HORARIO EN MOBILE */
     .grilla-horario {
-        grid-template-columns: 1fr !important;
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 20px !important;
+        grid-template-columns: 1fr;
     }
 
-    .col-horario-foto {
-        width: 100%;
-        height: 240px;
-    }
-
+    .col-horario-foto,
     .col-horario-card {
-        width: 100%;
-        min-height: auto;
-        padding: 30px 24px;
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 850px) {
+    .only-mobile {
+      display: inline;
     }
 
-    /* TARJETA AGUA EN MOBILE */
-    .tarjeta-poster-agua {
-        min-height: 320px;
-        width: 100%;
+    .footer-hero-title {
+      font-size: 20px; /* Tamaño reducido en mobile */
+      top: 10%;
     }
 
-    /* HEADER Y HERO MOBILE */
     .header-grid {
         flex-direction: column;
         align-items: center;
     }
 
     .logo-img {
-        max-width: 280px;
+        max-width: 290px;
     }
 
     .mascotas-img {
-        max-width: 310px;
+        max-width: 320px;
     }
 
     .grilla-areas {
@@ -948,20 +993,8 @@ section {
     }
 
     .tarjeta-area {
-        flex: 0 0 80%;
+        flex: 0 0 78%;
         scroll-snap-align: start;
-    }
-
-    /* CONSULTORÍA, ISO Y CONVENIO EN MOBILE */
-    .grilla-consultoria, .grilla-certificacion, .convenio-grid {
-        flex-direction: column !important;
-        display: flex !important;
-        gap: 25px !important;
-    }
-
-    .col-app, .col-foto-lab {
-        max-width: 100%;
-        width: 100%;
     }
 
     .col-veterinaria-foto {
@@ -970,20 +1003,21 @@ section {
 
     .card-determinaciones {
         flex-direction: column;
-        padding: 24px;
+        padding: 20px;
+    }
+
+    .indabi-grid-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
     }
 
     .card-convenio {
-        padding: 25px 20px;
+        padding: 30px 20px;
     }
 
-    /* TÍTULO FOOTER MOBILE OVERLAY */
-    .footer-hero-title {
-      font-size: 13px;
-      white-space: normal;
-      top: 15%;
-      width: 85%;
-      line-height: 1.25;
+    .convenio-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .footer-pilares-grid {
@@ -991,14 +1025,26 @@ section {
         gap: 20px;
     }
 
-    .footer-bottom-row {
+    .qr-group-left {
         flex-direction: column;
         align-items: flex-start;
-        gap: 25px;
+        gap: 15px;
     }
 
-    .footer-contact-cols {
+    .qr-list-container {
         flex-direction: column;
-        gap: 12px;
+        gap: 8px;
+    }
+
+    .footer-contact-block {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .footer-info-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
     }
 }
