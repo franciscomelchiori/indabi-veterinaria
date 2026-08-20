@@ -29,6 +29,7 @@ section {
     padding: 0 20px;
     box-sizing: border-box;
     overflow: hidden;
+    position: relative;
 }
 
 /* LÍNEA SEPARADORA PERSONALIZADA SOLO PARA MOBILE */
@@ -56,7 +57,7 @@ section {
 .nav-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
@@ -69,7 +70,6 @@ section {
   margin: 0;
   padding: 0;
   gap: 10px;
-  justify-content: center;
   width: 100%;
 }
 
@@ -99,6 +99,37 @@ section {
   padding: 7px 16px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   border: 2px solid #ffffff;
+}
+
+.nav-menu li.nav-right {
+  margin-left: auto;
+}
+
+/* BOTÓN CONTACTO WSP - VERDE MACIZO POR DEFECTO, FILETEADO EN HOVER */
+.nav-menu li a.btn-whatsapp-nav {
+  background-color: #25d366;
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 20px;
+  padding: 6px 16px;
+  border: 2px solid #25d366;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.nav-menu li a.btn-whatsapp-nav:hover {
+  background-color: transparent;
+  color: #25d366;
+  border-color: #25d366;
+}
+
+.icono-wsp {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
 }
 
 .hamburger {
@@ -175,21 +206,45 @@ section {
     line-height: 1.45;
 }
 
-/* --- BLOQUE 2: ÁREAS DE SERVICIO (BANDA GRIS Y 9 TARJETAS) --- */
+/* --- BLOQUE 2: ÁREAS DE SERVICIO (TARJETA CON DEGRADÉ DEL MENÚ) --- */
 .areas-servicio {
     background-color: #f5f5f7;
     border-top: 5px solid #b5005b;
-    padding: 45px 0 50px 0;
+    padding: 35px 0 50px 0;
     width: 100%;
 }
 
+.card-titulo-areas {
+    background: linear-gradient(90deg, #b5005b 0%, #6b2d7d 100%);
+    border-radius: 16px;
+    padding: 24px 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 14px rgba(107, 45, 125, 0.2);
+}
+
 .titulo-areas-diagnosticas {
-    color: #b4005b;
-    font-size: 2.1rem;
+    color: #ffffff;
+    font-size: 1.35rem;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: left;
+    position: relative;
+    padding-left: 22px;
+}
+
+.titulo-areas-diagnosticas::before {
+    content: "›";
+    position: absolute;
+    left: 0;
+    top: -2px;
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 900;
+}
+
+.titulo-areas-diagnosticas strong {
     font-weight: 800;
-    line-height: 1.15;
-    text-align: center;
-    margin-bottom: 35px;
+    color: #ffffff;
 }
 
 .grilla-areas {
@@ -207,6 +262,12 @@ section {
     align-items: center;
     min-height: 92px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarjeta-area:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
 .tarjeta-area-content {
@@ -242,6 +303,7 @@ section {
     line-height: 1.3;
     position: relative;
     padding-left: 14px;
+    transition: color 0.2s ease;
 }
 
 .tarjeta-area li::before {
@@ -271,9 +333,9 @@ section {
 
 .header-seccion h2 {
     color: #b4005b;
-    font-size: 2.1rem;
+    font-size: 1.65rem;
     font-weight: 800;
-    line-height: 1.15;
+    line-height: 1.2;
 }
 
 .grilla-consultoria {
@@ -368,14 +430,14 @@ section {
 
 .grilla-certificacion {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 40px;
 }
 
 .col-foto-lab {
     width: 100%;
-    max-width: 790px;
+    max-width: 730px;
     flex-shrink: 0;
 }
 
@@ -383,7 +445,7 @@ section {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 12px;
+    border-radius: 20px;
 }
 
 .col-info-iso {
@@ -397,12 +459,16 @@ section {
     width: 100%;
     max-width: 380px;
     margin-bottom: 25px;
+    border-radius: 20px;
+    overflow: hidden;
+    align-self: flex-start;
 }
 
 .img-sello-iram {
     width: 100%;
     height: auto;
     display: block;
+    border-radius: 20px;
 }
 
 .col-info-iso h2 {
@@ -491,6 +557,11 @@ section {
     display: flex;
     flex-direction: column;
     width: 100%;
+    transition: transform 0.25s ease;
+}
+
+.indabi-card:hover {
+    transform: translateY(-5px);
 }
 
 .card-image {
@@ -508,6 +579,11 @@ section {
     object-fit: cover;
     display: block;
     border-radius: 20px;
+    transition: transform 0.35s ease;
+}
+
+.indabi-card:hover .card-image img {
+    transform: scale(1.03);
 }
 
 .card-title {
@@ -697,7 +773,6 @@ section {
    ========================================== */
 .seccion-footer-indabi {
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
   color: #333333;
   background-color: #ffffff;
@@ -735,6 +810,8 @@ section {
   gap: 30px;
   padding: 40px 20px 30px 20px;
   justify-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .pilar-item {
@@ -764,15 +841,20 @@ section {
   color: #444444;
 }
 
+.footer-bottom-wrapper {
+    padding: 0 20px;
+}
+
 .footer-bottom-row {
   border-top: 1px dashed #cccccc;
   border-bottom: 1px dashed #cccccc;
-  padding: 30px 20px;
+  padding: 30px 0;
   margin: 10px 0 40px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+  width: 100%;
 }
 
 .footer-logo-container {
@@ -822,13 +904,13 @@ section {
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   white-space: nowrap;
 }
 
-.contact-icon {
-  width: 14px;
-  height: 14px;
+.contact-icon-flecha {
+  width: 16px;
+  height: 16px;
   object-fit: contain;
   flex-shrink: 0;
 }
@@ -842,14 +924,36 @@ section {
    AJUSTES RESPONSIVE UNIFICADOS Y CORREGIDOS (MOBILE)
    ========================================== */
 @media (max-width: 850px) {
-    /* ACTIVA LA LÍNEA SEPARADORA SÓLO EN MOBILE */
     .linea-separadora-mobile {
         display: block;
     }
 
-    /* ESPACIADO ENTRE SECCIONES */
     section {
         margin-bottom: 35px;
+    }
+
+    .card-titulo-areas {
+        padding: 18px 20px;
+    }
+
+    .titulo-areas-diagnosticas {
+        font-size: 1.15rem !important;
+    }
+
+    /* ÍCONO A LA IZQUIERDA Y TEXTO A LA DERECHA EN ENCABEZADO DE SERVICIO */
+    .header-seccion {
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 15px !important;
+    }
+
+    .icono-servicio {
+        width: 55px !important;
+    }
+
+    .header-seccion h2 {
+        font-size: 1.25rem !important;
+        text-align: left;
     }
 
     /* MENÚ HAMBURGUESA */
@@ -882,6 +986,10 @@ section {
       width: 100%;
     }
 
+    .nav-menu li.nav-right {
+      margin-left: 0;
+    }
+
     .nav-menu li a {
       width: 100%;
       justify-content: center;
@@ -892,7 +1000,6 @@ section {
       text-transform: uppercase;
     }
 
-    /* REGLA UNIFICADA DE TARJETAS EN MOBILE CON LÍNEA SEPARADORA SUPERIOR */
     .indabi-grid-container {
         grid-template-columns: 1fr !important;
         gap: 0 !important;
@@ -918,7 +1025,6 @@ section {
         border-top: none;
     }
 
-    /* SECCIÓN HORARIO EN MOBILE */
     .grilla-horario {
         grid-template-columns: 1fr !important;
         display: flex !important;
@@ -937,13 +1043,11 @@ section {
         padding: 30px 24px;
     }
 
-    /* TARJETA AGUA EN MOBILE */
     .tarjeta-poster-agua {
         min-height: 320px;
         width: 100%;
     }
 
-    /* HEADER Y HERO MOBILE */
     .header-grid {
         flex-direction: column;
         align-items: center;
@@ -970,7 +1074,6 @@ section {
         scroll-snap-align: start;
     }
 
-    /* CONSULTORÍA, ISO Y CONVENIO EN MOBILE */
     .grilla-consultoria, .grilla-certificacion, .convenio-grid {
         flex-direction: column !important;
         display: flex !important;
@@ -995,7 +1098,6 @@ section {
         padding: 25px 20px;
     }
 
-    /* TÍTULO FOOTER MOBILE OVERLAY */
     .footer-hero-title {
       font-size: 13px;
       white-space: normal;
@@ -1009,14 +1111,60 @@ section {
         gap: 20px;
     }
 
+    /* ALINEACIÓN PERFECTA DEL FOOTER EN MOBILE CON MÁRGENES DE PÁGINA Y FUENTES MÁS GRANDES */
+    .footer-bottom-wrapper {
+        padding: 0 20px;
+    }
+
     .footer-bottom-row {
         flex-direction: column;
         align-items: flex-start;
         gap: 25px;
+        padding: 25px 0;
+        margin: 0;
+        border-top: 1px dashed #cccccc;
+        border-bottom: 1px dashed #cccccc;
+    }
+
+    .footer-logo-container {
+        width: 100%;
+    }
+
+    .footer-logo-img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .qr-simple-block {
+        width: 100%;
+        max-width: 100%;
+        background-color: #f5f5f7;
+        padding: 20px;
+        border-radius: 16px;
+        box-sizing: border-box;
+        justify-content: flex-start;
+    }
+
+    .qr-img {
+        width: 85px;
+        height: 85px;
+    }
+
+    .qr-text-simple {
+        font-size: 13.5px;
+        line-height: 1.4;
     }
 
     .footer-contact-cols {
         flex-direction: column;
-        gap: 12px;
+        gap: 14px;
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .contact-item {
+        font-size: 14px;
     }
 }
