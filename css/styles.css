@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 html, body {
     width: 100%;
     max-width: 100vw;
@@ -30,6 +34,11 @@ section {
     box-sizing: border-box;
     overflow: hidden;
     position: relative;
+}
+
+/* MARGEN DE SCROLL PARA QUE EL NAVEGADOR ENCUADRE EL FOOTER PERFECTO */
+#contacto-footer {
+    scroll-margin-top: 80px;
 }
 
 /* LÍNEA SEPARADORA PERSONALIZADA SOLO PARA MOBILE */
@@ -776,6 +785,8 @@ section {
   margin: 0 auto;
   color: #333333;
   background-color: #ffffff;
+  position: relative;
+  margin-bottom: 0;
 }
 
 .footer-hero-banner {
@@ -841,6 +852,88 @@ section {
   color: #444444;
 }
 
+/* BLOQUE DE CONTACTO DESTACADO CON TELÉFONOS */
+.footer-destacado-telefonos {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    border-top: 1px dashed #cccccc;
+    padding-top: 35px;
+    margin-top: 10px;
+}
+
+.footer-destacado-logo {
+    flex: 0 0 320px;
+}
+
+.destacado-logo-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.footer-destacado-info {
+    flex: 1;
+}
+
+.horario-destacado-texto {
+    color: #6b2670;
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.grid-tarjetas-wsp {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.card-wsp-item {
+    background-color: #ffffff;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+    display: block;
+}
+
+.card-wsp-item:hover {
+    transform: translateY(-3px);
+}
+
+.card-wsp-subtitulo {
+    display: block;
+    color: #555555;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.card-wsp-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icono-wsp-grande {
+    width: 38px;
+    height: 38px;
+    fill: #25d366;
+    flex-shrink: 0;
+}
+
+.numero-tel {
+    color: #6b2670;
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.numero-tel small {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
 .footer-bottom-wrapper {
     padding: 0 20px;
 }
@@ -849,56 +942,50 @@ section {
   border-top: 1px dashed #cccccc;
   border-bottom: 1px dashed #cccccc;
   padding: 30px 0;
-  margin: 10px 0 40px 0;
+  margin: 35px 0 20px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 30px;
   width: 100%;
-}
-
-.footer-logo-container {
-  flex-shrink: 0;
-}
-
-.footer-logo-img {
-  max-width: 155px;
-  height: auto;
-  display: block;
 }
 
 .qr-simple-block {
   display: flex;
   align-items: center;
-  gap: 15px;
-  max-width: 310px;
+  gap: 18px;
+  max-width: 360px;
+  margin-left: 0; /* MARGINADO A LA IZQUIERDA */
 }
 
 .qr-img {
-  width: 75px;
-  height: 75px;
+  width: 95px;
+  height: 95px;
   object-fit: contain;
   flex-shrink: 0;
 }
 
 .qr-text-simple {
-  font-size: 12.5px;
-  line-height: 1.35;
+  font-size: 13px;
+  line-height: 1.4;
   font-weight: 700;
   color: #333333;
 }
 
-.footer-contact-cols {
-  display: flex;
+/* 3 COLUMNAS DE DATO DE CONTACTO */
+.footer-contact-cols3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 25px;
-  font-size: 12px;
+  font-size: 12.5px;
   color: #444444;
+  flex: 1;
 }
 
 .contact-col {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .contact-item {
@@ -920,8 +1007,23 @@ section {
   text-decoration: none;
 }
 
+/* ONDAS CSS / SVG DE CIERRE */
+.footer-waves-container {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    margin-top: 20px;
+}
+
+.footer-waves-svg {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 90px;
+}
+
 /* ==========================================
-   AJUSTES RESPONSIVE UNIFICADOS Y CORREGIDOS (MOBILE)
+   AJUSTES RESPONSIVE UNIFICADOS (MOBILE)
    ========================================== */
 @media (max-width: 850px) {
     .linea-separadora-mobile {
@@ -940,7 +1042,6 @@ section {
         font-size: 1.15rem !important;
     }
 
-    /* ÍCONO A LA IZQUIERDA Y TEXTO A LA DERECHA EN ENCABEZADO DE SERVICIO */
     .header-seccion {
         flex-direction: row !important;
         align-items: center !important;
@@ -956,7 +1057,6 @@ section {
         text-align: left;
     }
 
-    /* MENÚ HAMBURGUESA */
     .nav-container {
       justify-content: flex-end;
     }
@@ -1111,7 +1211,26 @@ section {
         gap: 20px;
     }
 
-    /* ALINEACIÓN PERFECTA DEL FOOTER EN MOBILE CON MÁRGENES DE PÁGINA Y FUENTES MÁS GRANDES */
+    /* REORGANIZACIÓN TOTAL DEL FOOTER EN MOBILE */
+    .footer-destacado-telefonos {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-destacado-logo {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    .grid-tarjetas-wsp {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .numero-tel {
+        font-size: 1.6rem;
+    }
+
     .footer-bottom-wrapper {
         padding: 0 20px;
     }
@@ -1121,35 +1240,21 @@ section {
         align-items: flex-start;
         gap: 25px;
         padding: 25px 0;
-        margin: 0;
-        border-top: 1px dashed #cccccc;
-        border-bottom: 1px dashed #cccccc;
-    }
-
-    .footer-logo-container {
-        width: 100%;
-    }
-
-    .footer-logo-img {
-        max-width: 100%;
-        width: 100%;
-        height: auto;
-        display: block;
+        margin: 20px 0;
     }
 
     .qr-simple-block {
         width: 100%;
         max-width: 100%;
         background-color: #f5f5f7;
-        padding: 20px;
+        padding: 18px;
         border-radius: 16px;
         box-sizing: border-box;
-        justify-content: flex-start;
     }
 
     .qr-img {
-        width: 85px;
-        height: 85px;
+        width: 90px;
+        height: 90px;
     }
 
     .qr-text-simple {
@@ -1157,14 +1262,18 @@ section {
         line-height: 1.4;
     }
 
-    .footer-contact-cols {
-        flex-direction: column;
-        gap: 14px;
+    .footer-contact-cols3 {
+        grid-template-columns: 1fr;
+        gap: 12px;
         width: 100%;
         font-size: 14px;
     }
 
     .contact-item {
         font-size: 14px;
+    }
+
+    .footer-waves-svg {
+        height: 50px;
     }
 }
