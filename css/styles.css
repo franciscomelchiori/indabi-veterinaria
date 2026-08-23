@@ -21,7 +21,6 @@ body {
     overflow-x: hidden;
 }
 
-/* --- REGLA GLOBAL UNIFICADA DE ESPACIADO DE SECCIONES --- */
 section {
     margin-bottom: 50px;
 }
@@ -40,7 +39,6 @@ section {
     scroll-margin-top: 80px;
 }
 
-/* LÍNEA SEPARADORA PERSONALIZADA SOLO PARA MOBILE */
 .linea-separadora-mobile {
     display: none;
     border: none;
@@ -447,6 +445,8 @@ section {
     border-radius: 20px;
     padding: 35px 30px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .box-consultoria h3 {
@@ -684,7 +684,6 @@ section {
     font-weight: 500;
 }
 
-/* BOTONES SECUNDARIOS PARA DOCUMENTOS (TARJETAS DUCHENNE Y PERFILES) */
 .btn-doc-link {
     display: inline-flex;
     align-items: center;
@@ -804,6 +803,12 @@ section {
     color: #f1e6f3 !important;
 }
 
+.inner-box-violeta {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 /* --- BLOQUE CONVENIO UNER --- */
 .card-convenio {
     background-color: #f7f7f8;
@@ -892,13 +897,13 @@ section {
 .btn-visitar-agua {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     background: rgba(255, 255, 255, 0.22);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border: 1.5px solid rgba(255, 255, 255, 0.6);
     color: #ffffff;
-    padding: 10px 16px;
+    padding: 10px 18px;
     border-radius: 30px;
     text-decoration: none;
     font-size: 0.85rem;
@@ -920,7 +925,7 @@ section {
 }
 
 /* ==========================================
-   SECCIÓN FOOTER INDABI
+   SECCIÓN FOOTER INDABI Y BANNER EQUIPO
    ========================================== */
 .seccion-footer-indabi {
   width: 100%;
@@ -934,7 +939,7 @@ section {
 .footer-hero-banner {
   position: relative;
   width: 100%;
-  background: linear-gradient(90deg, #b5005b 0%, #6b2d7d 100%);
+  background-color: #ffffff;
 }
 
 .footer-hero-container {
@@ -945,16 +950,16 @@ section {
 
 .footer-hero-title {
   position: absolute;
-  top: 12%;
+  top: 10%;
   left: 50%;
   transform: translateX(-50%);
   color: #ffffff;
-  font-size: 2.1rem;
+  font-size: 2.2rem;
   font-weight: 800;
   width: 100%;
   text-align: center;
   z-index: 2;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
 }
 
 .footer-hero-img {
@@ -1211,7 +1216,6 @@ section {
       display: flex !important;
     }
 
-    /* MENÚ HAMBURGUESA DESPLEGABLE */
     .nav-menu {
       position: absolute;
       top: 100%;
@@ -1248,25 +1252,35 @@ section {
       text-transform: uppercase;
     }
 
-    /* GRILLAS BÁSICAS DE TARJETAS EN VERTICAL */
-    .indabi-grid-container {
-        grid-template-columns: 1fr !important;
-        gap: 0 !important;
+    /* REORDENAMIENTO DE LA VIÑETA DE CONSULTORÍA EN MÓVIL */
+    .box-consultoria {
+        display: flex;
+        flex-direction: column;
+        padding: 24px 20px;
     }
 
-    .indabi-card {
-        padding-top: 25px;
-        margin-top: 25px;
-        border-top: 1px solid #e0e0e0;
+    .box-consultoria h3 {
+        order: 1;
+        margin-bottom: 15px;
     }
 
-    .indabi-grid-container .indabi-card:first-child {
-        border-top: none;
-        padding-top: 0;
-        margin-top: 0;
+    .box-consultoria .box-red-labs {
+        order: 2;
+        margin-bottom: 20px;
     }
 
-    /* CARRUSEL HORIZONTAL SOLAMENTE PARA BLOQUE VIOLETA (EQUIPAMIENTO) */
+    .box-consultoria p {
+        order: 3;
+        margin-bottom: 0;
+    }
+
+    .box-descarga-app {
+        border-bottom: 1px solid #d0d0d5;
+        padding-bottom: 20px;
+        margin-bottom: 10px;
+    }
+
+    /* CARRUSEL MEJORADO EN EL BLOQUE VIOLETA */
     .seccion-equipamiento .indabi-grid-container {
         display: flex !important;
         overflow-x: auto !important;
@@ -1285,8 +1299,28 @@ section {
         margin-top: 0 !important;
     }
 
-    .seccion-equipamiento .card-title {
-        white-space: normal;
+    .seccion-equipamiento .inner-box-violeta {
+        background-color: #582866;
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .indabi-grid-container {
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+    }
+
+    .indabi-card {
+        padding-top: 25px;
+        margin-top: 25px;
+        border-top: 1px solid #e0e0e0;
+    }
+
+    .indabi-grid-container .indabi-card:first-child {
+        border-top: none;
+        padding-top: 0;
+        margin-top: 0;
     }
 
     .grilla-horario {
@@ -1307,7 +1341,7 @@ section {
         padding: 30px 24px;
     }
 
-    /* FIX DE TARJETA POSTER AGUA MOBILE */
+    /* AJUSTE TARJETA AGUA EN MÓVIL */
     .tarjeta-poster-agua {
         min-height: 380px;
         width: 100%;
@@ -1361,7 +1395,6 @@ section {
         display: none;
     }
 
-    /* BLOQUE 5 AJUSTADO A MOBILE */
     .card-determinaciones {
         flex-direction: column;
         padding: 24px 18px;
@@ -1387,12 +1420,17 @@ section {
         padding: 25px 20px;
     }
 
+    /* AJUSTE BANNER DE PERSONAL FOOTER EN MÓVIL */
+    .footer-hero-container {
+        max-width: 100vw;
+    }
+
     .footer-hero-title {
-      font-size: 1.05rem;
-      white-space: normal;
-      top: 10%;
-      width: 90%;
-      line-height: 1.2;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      top: 6%;
+      width: 100%;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.7);
     }
 
     .footer-pilares-grid {
