@@ -36,6 +36,7 @@ section {
     position: relative;
 }
 
+/* MARGEN DE SCROLL PARA QUE EL NAVEGADOR ENCUADRE EL FOOTER PERFECTO */
 #contacto-footer {
     scroll-margin-top: 80px;
 }
@@ -69,7 +70,6 @@ section {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-  position: relative;
 }
 
 .nav-menu {
@@ -114,6 +114,7 @@ section {
   margin-left: auto;
 }
 
+/* BOTÓN CONTACTO WSP - VERDE MACIZO POR DEFECTO, FILETEADO EN HOVER */
 .nav-menu li a.btn-whatsapp-nav {
   background-color: #25d366;
   color: #ffffff;
@@ -214,7 +215,7 @@ section {
     line-height: 1.45;
 }
 
-/* --- BLOQUE 2: ÁREAS DE SERVICIO --- */
+/* --- BLOQUE 2: ÁREAS DE SERVICIO (TARJETA CON DEGRADÉ DEL MENÚ) --- */
 .areas-servicio {
     background-color: #f5f5f7;
     border-top: 5px solid #b5005b;
@@ -493,7 +494,7 @@ section {
     color: #e0f0fc;
 }
 
-/* --- BLOQUE 5: DETERMINACIONES Y BOTÓN DE DESCARGA --- */
+/* --- BLOQUE 5: DETERMINACIONES --- */
 .card-determinaciones {
     background-color: #f5f5f7;
     border-radius: 20px;
@@ -535,33 +536,6 @@ section {
     font-size: 0.95rem;
     line-height: 1.5;
     font-weight: 500;
-}
-
-.btn-descarga-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 20px;
-    padding: 10px 18px;
-    border: 2px solid #6b2670;
-    border-radius: 12px;
-    text-decoration: none;
-    color: #6b2670;
-    font-size: 0.9rem;
-    font-weight: 700;
-    line-height: 1.25;
-    transition: all 0.2s ease;
-}
-
-.btn-descarga-link:hover {
-    background-color: #6b2670;
-    color: #ffffff;
-}
-
-.icono-download {
-    width: 22px;
-    height: 22px;
-    flex-shrink: 0;
 }
 
 .col-veterinaria-foto {
@@ -878,6 +852,7 @@ section {
   color: #444444;
 }
 
+/* BLOQUE DE CONTACTO DESTACADO CON TELÉFONOS */
 .footer-destacado-telefonos {
     display: flex;
     align-items: center;
@@ -980,7 +955,7 @@ section {
   align-items: center;
   gap: 18px;
   max-width: 360px;
-  margin-left: 0;
+  margin-left: 0; /* MARGINADO A LA IZQUIERDA */
 }
 
 .qr-img {
@@ -997,6 +972,7 @@ section {
   color: #333333;
 }
 
+/* 3 COLUMNAS DE DATO DE CONTACTO */
 .footer-contact-cols3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1031,6 +1007,7 @@ section {
   text-decoration: none;
 }
 
+/* ONDAS CSS / SVG DE CIERRE */
 .footer-waves-container {
     width: 100%;
     overflow: hidden;
@@ -1046,7 +1023,7 @@ section {
 }
 
 /* ==========================================
-   AJUSTES RESPONSIVE UNIFICADOS (MOBILE < 850px)
+   AJUSTES RESPONSIVE UNIFICADOS (MOBILE)
    ========================================== */
 @media (max-width: 850px) {
     .linea-separadora-mobile {
@@ -1082,14 +1059,12 @@ section {
 
     .nav-container {
       justify-content: flex-end;
-      position: relative;
     }
 
     .hamburger {
       display: flex !important;
     }
 
-    /* MENÚ HAMBURGUESA DESPLEGABLE */
     .nav-menu {
       position: absolute;
       top: 100%;
@@ -1100,7 +1075,7 @@ section {
       padding: 16px 20px;
       gap: 10px;
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
-      display: none !important;
+      display: none;
     }
 
     .nav-menu.active {
@@ -1125,7 +1100,6 @@ section {
       text-transform: uppercase;
     }
 
-    /* GRILLAS BÁSICAS DE TARJETAS EN VERTICAL */
     .indabi-grid-container {
         grid-template-columns: 1fr !important;
         gap: 0 !important;
@@ -1143,23 +1117,12 @@ section {
         margin-top: 0;
     }
 
-    /* CARRUSEL HORIZONTAL SOLAMENTE PARA BLOQUE VIOLETA (EQUIPAMIENTO) */
-    .seccion-equipamiento .indabi-grid-container {
-        display: flex !important;
-        overflow-x: auto !important;
-        scroll-snap-type: x mandatory;
-        gap: 16px !important;
-        padding-bottom: 15px;
-        padding-right: 40px;
-        -webkit-overflow-scrolling: touch;
+    .seccion-equipamiento .indabi-card {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    .seccion-equipamiento .indabi-card {
-        flex: 0 0 85% !important;
-        scroll-snap-align: start;
-        border-top: none !important;
-        padding-top: 0 !important;
-        margin-top: 0 !important;
+    .seccion-equipamiento .indabi-grid-container .indabi-card:first-child {
+        border-top: none;
     }
 
     .grilla-horario {
@@ -1226,26 +1189,9 @@ section {
         display: none;
     }
 
-    /* BLOQUE 5 AJUSTADO A MOBILE */
     .card-determinaciones {
         flex-direction: column;
-        padding: 24px 18px;
-    }
-
-    .col-celular-planilla {
-        align-self: flex-start !important;
-        margin-left: -18px;
-        max-width: 100%;
-    }
-
-    .col-texto-determinaciones h2 {
-        margin-top: -10px;
-        margin-bottom: 10px;
-    }
-
-    .btn-descarga-link {
-        width: 100%;
-        justify-content: flex-start;
+        padding: 24px;
     }
 
     .card-convenio {
@@ -1265,6 +1211,7 @@ section {
         gap: 20px;
     }
 
+    /* REORGANIZACIÓN TOTAL DEL FOOTER EN MOBILE */
     .footer-destacado-telefonos {
         flex-direction: column;
         gap: 20px;
