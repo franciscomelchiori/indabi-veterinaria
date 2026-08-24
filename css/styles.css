@@ -565,7 +565,7 @@ section {
 }
 
 .col-celular-planilla {
-    flex: 0 0 36%;
+    flex: 0 0 32%;
     max-width: 420px;
     align-self: flex-end;
     display: flex;
@@ -577,8 +577,9 @@ section {
     display: block;
 }
 
+/* AJUSTE 3: COLUMNA CENTRAL 15% MÁS ANCHA EN ESCRITORIO */
 .col-texto-determinaciones {
-    flex: 1;
+    flex: 1.15;
     padding: 30px 10px;
 }
 
@@ -625,7 +626,7 @@ section {
 }
 
 .col-veterinaria-foto {
-    flex: 0 0 35%;
+    flex: 0 0 32%;
     align-self: stretch;
     display: flex;
     align-items: flex-end;
@@ -901,6 +902,7 @@ section {
     margin-bottom: 18px;
 }
 
+/* AJUSTE 4: REDONDEO DEL BOTÓN IGUALADO A LOS DEMÁS (12px) */
 .btn-visitar-agua {
     display: inline-flex;
     align-items: center;
@@ -911,7 +913,7 @@ section {
     border: 1.5px solid rgba(255, 255, 255, 0.6);
     color: #ffffff;
     padding: 10px 18px;
-    border-radius: 20px;
+    border-radius: 12px;
     text-decoration: none;
     font-size: 0.85rem;
     font-weight: 700;
@@ -1311,6 +1313,15 @@ section {
         margin-top: 0;
     }
 
+    /* AJUSTE 1: DESACTIVAR ESCALADO EN HOVER EN MÓVIL PARA QUE NO SE CORTE */
+    .seccion-equipamiento .indabi-card:hover {
+        transform: none;
+    }
+
+    .seccion-equipamiento .indabi-card:hover .card-image img {
+        transform: none;
+    }
+
     .indabi-grid-container {
         grid-template-columns: 1fr;
         gap: 0;
@@ -1433,12 +1444,16 @@ section {
         padding: 25px 20px;
     }
 
+    /* BANNER FOOTER AL 100% EN MÓVIL Y CON ESQUINAS SUPERIORES REDONDEADAS (AJUSTE Y IMAGEN 2) */
     .footer-hero-container {
         max-width: 100vw;
-        border-radius: 0;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        overflow: hidden;
     }
 
-    /* TÍTULO FOOTER AJUSTADO A UN TAMAÑO MÁS PEQUEÑO MANTENIENDO PROPORCIÓN */
     .footer-hero-title {
       font-size: 0.8rem;
       white-space: normal;
