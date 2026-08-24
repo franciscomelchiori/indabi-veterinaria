@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INDABI - Listado de Determinaciones (División Veterinaria)</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: #f4f5f7;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Header superior estático */
+    .header-single-line {
+      background-color: #ffffff;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 10px 20px;
+      font-size: 13px;
+      color: #555;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .header-single-line a {
+      color: #724784;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* CONTENEDOR FIJO EN LA PARTE SUPERIOR */
+    .fixed-top-container {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: #f4f5f7;
+      padding: 10px 15px 0 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .main-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* Buscador */
+    .search-input {
+      width: 100%;
+      padding: 12px 18px;
+      font-size: 14px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      outline: none;
+      box-sizing: border-box;
+      background-color: #ffffff;
+    }
+
+    .search-input:focus {
+      border-color: #724784;
+    }
+
+    /* Menú Horizontal de Categorías (Scrollable) */
+    .categories-menu {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 10px 0;
+      scrollbar-width: thin;
+    }
+
+    .categories-menu::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .categories-menu::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 4px;
+    }
+
+    .cat-pill {
+      background-color: #ffffff;
+      color: #724784;
+      border: 1px solid #724784;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .cat-pill:hover, .cat-pill.active {
+      background-color: #724784;
+      color: #ffffff;
+    }
+
+    /* Encabezado Fijo de la Tabla */
+    .table-header-fixed {
+      display: grid;
+      grid-template-columns: 120px 2.5fr 1.5fr 1fr 1fr;
+      background-color: #724784;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 12px;
+      text-transform: uppercase;
+      padding: 12px 15px;
+      border-radius: 8px 8px 0 0;
+      letter-spacing: 0.5px;
+    }
+
+    /* Tabla de Datos */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto 40px auto;
+      padding: 0 15px;
+    }
+
+    .table-body-wrapper {
+      background: #ffffff;
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .row-item {
+      display: grid;
+      grid-template-columns: 120px 2.5fr 1.5fr 1fr 1fr;
+      padding: 12px 15px;
+      font-size: 13.5px;
+      border-bottom: 1px solid #eee;
+      align-items: center;
+    }
+
+    .row-item:hover {
+      background-color: #f8eaf2;
+    }
+
+    .precio-val {
+      font-weight: bold;
+      color: #724784;
+    }
+
+    /* Filas Divisoras de Sección */
+    .category-section-header {
+      background-color: #f0e6f3;
+      color: #724784;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 12px 15px;
+      border-top: 2px solid #724784;
+      border-bottom: 2px solid #724784;
+      text-transform: uppercase;
+      scroll-margin-top: 140px; /* Offset para el scroll automático */
+    }
+
+    /* Botón Volver Arriba */
+    .btn-scroll-top {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 44px;
+      height: 44px;
+      background-color: #724784;
+      color: #ffffff;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    .btn-scroll-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Pantallas Móviles */
+    @media (max-width: 768px) {
+      .table-header-fixed {
+        display: none;
+      }
+
+      .row-item {
+        display: block;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+      }
+
+      .row-item div {
+        margin-bottom: 4px;
+        text-align: right;
+        position: relative;
+        padding-left: 40%;
+      }
+
+      .row-item div::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+        color: #724784;
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header-single-line">
+    <span><strong>INDABI - División Veterinaria</strong> / Listado de Determinaciones y Tarifas Vigentes</span>
+    <a href="index.html">← Volver a la web</a>
+  </header>
+
+  <!-- CONTENEDOR FIJO QUE PERMANECE VISIBLE AL BAJAR -->
+  <div class="fixed-top-container">
+    <div class="main-wrapper">
+      <input type="text" id="searchInput" class="search-input" placeholder="Buscar por sigla, determinación o categoría..." onkeyup="filterTable()">
+      
+      <!-- Menú Navegador de Categorías (se genera automáticamente) -->
+      <div id="categoriesMenu" class="categories-menu"></div>
+
+      <!-- Encabezado de la tabla -->
+      <div class="table-header-fixed">
+        <div>Sigla</div>
+        <div>Determinación</div>
+        <div>Material</div>
+        <div>Plazo</div>
+        <div>Precio</div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="main-wrapper">
+      <div id="tableBody" class="table-body-wrapper">
+        <div style="padding: 30px; text-align: center; color: #666;">Cargando determinaciones...</div>
+      </div>
+    </div>
+  </main>
+
+  <button id="scrollTopBtn" class="btn-scroll-top" onclick="scrollToTop()">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-8 8h5v8h6v-8h5z"/></svg>
+  </button>
+
+  <script>
+    const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQA1CYZsMGAcwpvFPMjVpm9ZrkmIMs2zCPGIJqj1h5NYWUieex-BX_kYc5BpEseP-hQrebpgfY-kyrM/pub?output=csv';
+
+    async function loadData() {
+      try {
+        const response = await fetch(CSV_URL);
+        const data = await response.text();
+        const rows = parseCSV(data);
+        
+        const container = document.getElementById('tableBody');
+        const menuContainer = document.getElementById('categoriesMenu');
+        container.innerHTML = '';
+        menuContainer.innerHTML = '';
+
+        let currentCategory = '';
+        const categories = [];
+
+        rows.slice(1).forEach((row, index) => {
+          if (!row || row.length < 5 || !row[1]) return;
+
+          const categoria = row[0] || 'General';
+
+          // Insertar divisor y guardar categoría para el menú
+          if (categoria !== currentCategory) {
+            currentCategory = categoria;
+            categories.push(currentCategory);
+            
+            const catId = `cat-${categories.length}`;
+            const subHeader = document.createElement('div');
+            subHeader.id = catId;
+            subHeader.className = 'category-section-header';
+            subHeader.innerText = currentCategory;
+            container.appendChild(subHeader);
+          }
+
+          const rowDiv = document.createElement('div');
+          rowDiv.className = 'row-item';
+          rowDiv.setAttribute('data-category', categoria);
+
+          const precioFormatted = isNaN(row[5]) ? row[5] : `$${Number(row[5]).toLocaleString('es-AR')}`;
+
+          rowDiv.innerHTML = `
+            <div data-label="Sigla"><strong>${row[1] || '-'}</strong></div>
+            <div data-label="Determinación">${row[2] || '-'}</div>
+            <div data-label="Material">${row[3] || '-'}</div>
+            <div data-label="Plazo">${row[4] || '-'}</div>
+            <div data-label="Precio" class="precio-val">${precioFormatted}</div>
+          `;
+          container.appendChild(rowDiv);
+        });
+
+        // Generar botones del menú superior
+        categories.forEach((cat, idx) => {
+          const btn = document.createElement('button');
+          btn.className = 'cat-pill';
+          btn.innerText = cat;
+          btn.onclick = () => scrollToCategory(`cat-${idx + 1}`);
+          menuContainer.appendChild(btn);
+        });
+
+      } catch (error) {
+        console.error('Error al cargar datos:', error);
+      }
+    }
+
+    function scrollToCategory(id) {
+      const target = document.getElementById(id);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function filterTable() {
+      const input = document.getElementById('searchInput').value.toLowerCase().trim();
+      const rows = document.querySelectorAll('.row-item');
+      const headers = document.querySelectorAll('.category-section-header');
+
+      headers.forEach(h => h.style.display = input === '' ? '' : 'none');
+
+      rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        const cat = (row.getAttribute('data-category') || '').toLowerCase();
+        row.style.display = (text.includes(input) || cat.includes(input)) ? '' : 'none';
+      });
+    }
+
+    function parseCSV(text) {
+      return text.split(/\r\n|\n/).map(line => {
+        return line.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/).map(cell => cell.replace(/^"|"$/g, '').trim());
+      });
+    }
+
+    window.onscroll = function() {
+      const btn = document.getElementById('scrollTopBtn');
+      btn.classList.toggle('show', window.scrollY > 250);
+    };
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.addEventListener('DOMContentLoaded', loadData);
+  </script>
+</body>
+</html>

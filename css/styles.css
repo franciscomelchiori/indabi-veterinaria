@@ -1739,3 +1739,13 @@ section {
         font-size: 0.75rem;
     }
 }
+
+tr.category-header td {
+  background-color: #f0d5e5;
+  color: #80235f;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  padding: 14px 15px;
+  border-top: 2px solid #80235f;
+}
