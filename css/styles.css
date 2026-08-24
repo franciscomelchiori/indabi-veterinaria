@@ -92,6 +92,10 @@ section {
   position: relative;
 }
 
+.icono-nav-izquierda {
+  display: none;
+}
+
 .nav-menu {
   display: flex;
   align-items: center;
@@ -1336,8 +1340,18 @@ section {
     }
 
     .nav-container {
-      justify-content: flex-end;
+      justify-content: space-between;
+      align-items: center;
       position: relative;
+      padding: 0 16px;
+    }
+
+    .icono-nav-izquierda {
+      display: block;
+      height: 22px;
+      width: auto;
+      margin-left: 8px;
+      flex-shrink: 0;
     }
 
     /* BOTÓN HAMBURGUESA CON TEXTO */
@@ -1383,13 +1397,13 @@ section {
       position: fixed;
       top: 0;
       right: 0;
-      width: 80vw;
+      width: 82vw;
       max-width: 320px;
       height: 100vh;
       background-color: var(--color-menu-mobile);
       flex-direction: column;
-      padding: 80px 20px 30px 20px;
-      gap: 12px;
+      padding: 80px 16px 30px 16px;
+      gap: 10px;
       box-shadow: -6px 0 20px rgba(0, 0, 0, 0.35);
       z-index: 999999;
       transform: translateX(100%);
@@ -1407,24 +1421,24 @@ section {
 
     .nav-menu li.nav-right {
       margin-left: 0;
-      margin-top: auto;
+      margin-top: 5px;
     }
 
     .nav-menu li a {
       width: 100%;
       justify-content: flex-start;
       background-color: rgba(255, 255, 255, 0.1);
-      padding: 12px 16px;
-      border-radius: 6px;
-      font-size: 0.88rem;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
       text-transform: uppercase;
       color: #ffffff;
     }
 
     .nav-icon-download {
       display: inline-block;
-      width: 16px;
-      height: 16px;
+      width: 18px;
+      height: 18px;
       margin-right: 10px;
     }
 
