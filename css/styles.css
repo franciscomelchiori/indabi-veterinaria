@@ -692,16 +692,13 @@ section {
     transform: scale(1.03);
 }
 
+/* TITULOS DE TARJETAS EN BOLD UNIFICADOS */
 .card-title {
     color: #6b2670;
     font-size: 1.15rem;
-    font-weight: 400;
+    font-weight: 700;
     line-height: 1.35;
     margin: 0 0 10px 0;
-}
-
-.card-title strong {
-    font-weight: 700;
 }
 
 .card-text {
@@ -803,7 +800,6 @@ section {
     display: block;
 }
 
-/* CONTENEDOR Y PASTILLA ENVOLVENTE AJUSTADA AL TEXTO */
 .box-pastilla-wrapper {
     margin-bottom: 16px;
     width: 100%;
@@ -816,7 +812,7 @@ section {
 
 .pastilla-texto-inline {
     background-color: rgba(255, 255, 255, 0.95);
-    color: #1f4d6a; /* AZUL OSCURO */
+    color: #1f4d6a;
     font-size: 1.15rem;
     font-weight: 700;
     padding: 6px 12px;
@@ -874,6 +870,7 @@ section {
     justify-content: flex-end;
     gap: 25px;
     z-index: 2;
+    margin-right: 10px; /* Desplazamiento de 10px a la derecha */
 }
 
 .pilar-agua-item-desktop {
@@ -883,6 +880,7 @@ section {
     color: #ffffff;
     font-size: 0.95rem;
     font-weight: 600;
+    line-height: 1.25;
     text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
@@ -1123,8 +1121,10 @@ section {
     display: block;
 }
 
+/* MARGEN PARA SEPARAR EL BLOQUE DE TELEFONOS DEL LOGO */
 .footer-destacado-info {
     flex: 1;
+    margin-left: 45px;
 }
 
 .horario-destacado-texto {
@@ -1498,7 +1498,7 @@ section {
     .aguas-iconos-mobile {
         display: flex;
         flex-direction: column;
-        gap: 18px;
+        gap: 10px; /* Reducido de 18px a 10px para achicar el interlineado en mobile */
         margin: 20px 0 25px 0;
     }
 
@@ -1607,11 +1607,20 @@ section {
         padding: 25px 20px;
     }
 
+    /* IMAGEN DEL FOOTER AL 100% ANCHO REAL EN MOBILE */
     .footer-hero-container {
+        width: 100vw;
         max-width: 100vw;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+        border-radius: 0;
         overflow: hidden;
+    }
+
+    .footer-hero-img {
+        width: 100%;
+        height: auto;
+        display: block;
     }
 
     .footer-hero-title {
@@ -1637,6 +1646,11 @@ section {
     .footer-destacado-logo {
         flex: 0 0 auto;
         width: 220px;
+    }
+
+    .footer-destacado-info {
+        margin-left: 0;
+        width: 100%;
     }
 
     .grid-tarjetas-wsp {
