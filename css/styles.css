@@ -47,20 +47,30 @@ section {
     position: relative;
 }
 
-#contacto-footer {
-    scroll-margin-top: 80px;
+#bloque-telefonos-ancla {
+    scroll-margin-top: 100px;
+}
+
+/* LÍNEA ÚNICA DE ANIVERSARIO */
+.linea-fina-1200 {
+    border: none;
+    border-top: 3px solid #b5005b;
+    margin: 25px auto 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    opacity: 0.9;
 }
 
 .linea-separadora-mobile {
     display: none;
     border: none;
-    border-top: 1px solid #e0e0e0;
+    border-top: 1px solid #cccccc;
     margin: 30px auto;
-    width: 100%;
-    max-width: 1200px;
+    width: calc(100% - 40px);
+    max-width: 1160px;
 }
 
-/* --- MENÚ DE NAVEGACIÓN COMPLETO CON DEGRADÉ --- */
+/* --- MENÚ DE NAVEGACIÓN --- */
 .navbar-indabi {
   position: fixed;
   top: 0;
@@ -96,7 +106,7 @@ section {
   text-decoration: none;
   color: #ffffff;
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 500;
   padding: 8px 12px;
   border-radius: 6px;
   transition: all 0.2s ease;
@@ -125,22 +135,21 @@ section {
 }
 
 .nav-menu li a.btn-whatsapp-nav {
-  background-color: var(--color-whatsapp);
-  color: var(--color-blanco);
-  font-weight: 700;
+  background-color: transparent;
+  color: var(--color-whatsapp);
+  font-weight: 600;
   border-radius: 20px;
   padding: 6px 16px;
   border: 2px solid var(--color-whatsapp);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .nav-menu li a.btn-whatsapp-nav:hover {
-  background-color: transparent;
-  color: var(--color-whatsapp);
+  background-color: var(--color-whatsapp);
+  color: #ffffff;
   border-color: var(--color-whatsapp);
 }
 
@@ -214,7 +223,7 @@ section {
 
 .banner-aniversario {
     text-align: left;
-    padding: 20px 0;
+    padding: 20px 0 0 0;
 }
 
 .banner-aniversario h3 {
@@ -227,7 +236,7 @@ section {
 /* --- BLOQUE 2: ÁREAS DE SERVICIO --- */
 .areas-servicio {
     background-color: #f5f5f7;
-    border-top: 5px solid var(--color-primario);
+    border-top: none;
     padding: 35px 0 50px 0;
     width: 100%;
 }
@@ -261,7 +270,7 @@ section {
 }
 
 .titulo-areas-diagnosticas strong {
-    font-weight: 800;
+    font-weight: 700;
     color: #ffffff;
 }
 
@@ -315,7 +324,7 @@ section {
 }
 
 .tarjeta-area li {
-    font-weight: 700;
+    font-weight: 600;
     font-size: 1.15rem;
     color: #111111;
     line-height: 1.3;
@@ -352,7 +361,7 @@ section {
 .header-seccion h2 {
     color: #b4005b;
     font-size: 1.65rem;
-    font-weight: 800;
+    font-weight: 400;
     line-height: 1.2;
 }
 
@@ -386,8 +395,8 @@ section {
 
 .texto-app h3 {
     color: #702570;
-    font-size: 1.5rem;
-    font-weight: 800;
+    font-size: 1.35rem;
+    font-weight: 400;
     line-height: 1.2;
     margin-bottom: 12px;
 }
@@ -396,7 +405,7 @@ section {
     font-size: 0.95rem;
     color: #333333;
     line-height: 1.45;
-    font-weight: 500;
+    font-weight: 400;
     margin-bottom: 15px;
 }
 
@@ -430,7 +439,7 @@ section {
 .subtitulo-app {
     display: block;
     color: var(--color-primario);
-    font-weight: 700;
+    font-weight: 600;
     font-size: 0.85rem;
     margin-bottom: 10px;
 }
@@ -463,8 +472,8 @@ section {
 
 .box-consultoria h3 {
     color: #702570;
-    font-size: 1.55rem;
-    font-weight: 800;
+    font-size: 1.4rem;
+    font-weight: 400;
     margin-bottom: 16px;
     line-height: 1.25;
 }
@@ -474,6 +483,7 @@ section {
     color: #333333;
     line-height: 1.5;
     margin-bottom: 35px;
+    font-weight: 400;
 }
 
 .box-red-labs {
@@ -540,8 +550,8 @@ section {
 }
 
 .col-info-iso h2 {
-    font-size: 1.6rem;
-    font-weight: 800;
+    font-size: 1.5rem;
+    font-weight: 400;
     line-height: 1.25;
     color: #ffffff;
     margin-bottom: 20px;
@@ -551,6 +561,7 @@ section {
     font-size: 1rem;
     line-height: 1.5;
     color: #e0f0fc;
+    font-weight: 400;
 }
 
 /* --- BLOQUE 5: DETERMINACIONES --- */
@@ -577,7 +588,6 @@ section {
     display: block;
 }
 
-/* AJUSTE 3: COLUMNA CENTRAL 15% MÁS ANCHA EN ESCRITORIO */
 .col-texto-determinaciones {
     flex: 1.15;
     padding: 30px 10px;
@@ -585,8 +595,8 @@ section {
 
 .col-texto-determinaciones h2 {
     color: #6b2670;
-    font-size: 1.5rem;
-    font-weight: 800;
+    font-size: 1.4rem;
+    font-weight: 400;
     line-height: 1.25;
     margin-bottom: 15px;
 }
@@ -595,7 +605,7 @@ section {
     color: #333333;
     font-size: 0.95rem;
     line-height: 1.5;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .btn-descarga-link {
@@ -609,7 +619,7 @@ section {
     text-decoration: none;
     color: #6b2670;
     font-size: 0.9rem;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.25;
     transition: all 0.2s ease;
 }
@@ -684,17 +694,21 @@ section {
 
 .card-title {
     color: #6b2670;
-    font-size: 1.2rem;
-    font-weight: 800;
-    line-height: 1.25;
-    margin: 0 0 12px 0;
+    font-size: 1.15rem;
+    font-weight: 400;
+    line-height: 1.35;
+    margin: 0 0 10px 0;
+}
+
+.card-title strong {
+    font-weight: 700;
 }
 
 .card-text {
     color: #333333;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     line-height: 1.5;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .btn-doc-link {
@@ -707,7 +721,7 @@ section {
     border-radius: 8px;
     color: #6b2670;
     font-size: 0.82rem;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.25;
     text-decoration: none;
     transition: all 0.2s ease;
@@ -729,6 +743,154 @@ section {
     display: flex;
     flex-direction: column;
     gap: 2px;
+}
+
+/* ==========================================
+   ESTRUCTURA Y GRILLA DE TARJETA AGUAS
+   ========================================== */
+@media (min-width: 851px) {
+    .grid-aguas-layout {
+        grid-template-columns: 1fr 2fr !important;
+    }
+
+    .tarjeta-doble-aguas {
+        grid-column: span 1 !important;
+    }
+}
+
+.aguas-card-wrapper {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    border-radius: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 35px 40px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-bandita-mobile {
+    display: none;
+}
+
+.aguas-iconos-mobile {
+    display: none;
+}
+
+.aguas-col-left {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    z-index: 2;
+}
+
+.aguas-logo-box {
+    max-width: 220px;
+    margin-bottom: auto;
+}
+
+.img-logo-aguas-grande {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* CONTENEDOR Y PASTILLA ENVOLVENTE AJUSTADA AL TEXTO */
+.box-pastilla-wrapper {
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.aguas-titulo-celeste {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.pastilla-texto-inline {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #1f4d6a; /* AZUL OSCURO */
+    font-size: 1.15rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 8px;
+    display: inline;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.aguas-bajada-texto {
+    color: #ffffff;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    margin-bottom: 20px;
+    max-width: 420px;
+    font-weight: 400;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.btn-visitar-agua {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1.5px solid rgba(255, 255, 255, 0.6);
+    color: #ffffff;
+    padding: 10px 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.25s ease;
+    align-self: flex-start;
+}
+
+.btn-visitar-agua:hover {
+    background: rgba(255, 255, 255, 1);
+    color: #0b62a4;
+    border-color: #ffffff;
+}
+
+.icono-gota {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+.aguas-col-right-iconos {
+    flex: 0 0 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 25px;
+    z-index: 2;
+}
+
+.pilar-agua-item-desktop {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.icono-svg-agua-grande {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    flex-shrink: 0;
 }
 
 /* --- BLOQUE 7: SECCIÓN HORARIO --- */
@@ -778,8 +940,8 @@ section {
 }
 
 .horario-texto-box h2 {
-    font-size: 1.45rem;
-    font-weight: 800;
+    font-size: 1.4rem;
+    font-weight: 400;
     line-height: 1.2;
     margin-bottom: 14px;
     color: #ffffff;
@@ -789,7 +951,7 @@ section {
     font-size: 0.95rem;
     line-height: 1.45;
     color: #f3e5f4;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 /* --- BLOQUE 9: EQUIPAMIENTO --- */
@@ -802,8 +964,8 @@ section {
 
 .titulo-equipamiento {
     color: #ffffff;
-    font-size: 1.85rem;
-    font-weight: 800;
+    font-size: 1.75rem;
+    font-weight: 400;
     margin-bottom: 30px;
     text-align: left;
 }
@@ -825,15 +987,15 @@ section {
 
 .convenio-title {
     color: #6b2670;
-    font-size: 1.35rem;
-    font-weight: 700;
+    font-size: 1.3rem;
+    font-weight: 400;
     line-height: 1.4;
     margin-bottom: 30px;
 }
 
 .convenio-title .texto-magenta {
     color: var(--color-primario);
-    font-weight: 800;
+    font-weight: 700;
 }
 
 .convenio-grid {
@@ -854,87 +1016,11 @@ section {
     color: #333333;
     font-size: 1rem;
     line-height: 1.5;
-    font-weight: 500;
-}
-
-/* --- TARJETA POSTER AGUA Y BOTÓN INTERACTIVO --- */
-.tarjeta-poster-agua {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 20px;
-    min-height: 380px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 24px;
-    position: relative;
-    overflow: hidden;
-}
-
-.poster-content {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-}
-
-.poster-title {
-    font-size: 1.1rem;
-    font-weight: 800;
-    line-height: 1.3;
-    margin-bottom: 12px;
-}
-
-.poster-title span {
-    background-color: rgba(255,255,255,0.95);
-    color: #6b2670;
-    padding: 4px 8px;
-    display: inline-block;
-}
-
-.poster-text {
-    color: #ffffff;
-    font-size: 0.9rem;
-    line-height: 1.4;
-    font-weight: 500;
-    margin-top: 6px;
-    margin-bottom: 18px;
-}
-
-/* AJUSTE 4: REDONDEO DEL BOTÓN IGUALADO A LOS DEMÁS (12px) */
-.btn-visitar-agua {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.22);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1.5px solid rgba(255, 255, 255, 0.6);
-    color: #ffffff;
-    padding: 10px 18px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 700;
-    transition: all 0.25s ease;
-    align-self: flex-start;
-}
-
-.btn-visitar-agua:hover {
-    background: rgba(255, 255, 255, 1);
-    color: #0b62a4;
-    border-color: #ffffff;
-}
-
-.icono-gota {
-    width: 18px;
-    height: 18px;
-    fill: currentColor;
+    font-weight: 400;
 }
 
 /* ==========================================
-   SECCIÓN FOOTER INDABI Y BANNER EQUIPO
+   FOOTER Y BOTÓN FLOTANTE "SUBIR"
    ========================================== */
 .seccion-footer-indabi {
   width: 100%;
@@ -1015,6 +1101,7 @@ section {
   font-size: 13.5px;
   line-height: 1.45;
   color: #444444;
+  font-weight: 400;
 }
 
 .footer-destacado-telefonos {
@@ -1043,7 +1130,7 @@ section {
 .horario-destacado-texto {
     color: #6b2670;
     font-size: 1.15rem;
-    font-weight: 500;
+    font-weight: 400;
     margin-bottom: 20px;
 }
 
@@ -1132,7 +1219,7 @@ section {
 .qr-text-simple {
   font-size: 13px;
   line-height: 1.4;
-  font-weight: 700;
+  font-weight: 600;
   color: #333333;
 }
 
@@ -1184,6 +1271,44 @@ section {
     height: 140px;
 }
 
+/* BOTÓN FLOTANTE "SUBIR" */
+.btn-back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 999;
+    background: var(--gradiente-marca);
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.25s ease;
+}
+
+.btn-back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.btn-back-to-top svg {
+    width: 18px;
+    height: 18px;
+}
+
+.btn-back-to-top:hover {
+    transform: translateY(-4px);
+}
+
 /* ==========================================
    AJUSTES RESPONSIVE UNIFICADOS (MOBILE < 850px)
    ========================================== */
@@ -1229,7 +1354,6 @@ section {
       z-index: 1000000;
     }
 
-    /* DESPLEGABLE MÓVIL FIJO INDEPENDIENTE */
     .navbar-indabi .nav-menu {
       display: none;
       position: fixed;
@@ -1313,15 +1437,6 @@ section {
         margin-top: 0;
     }
 
-    /* AJUSTE 1: DESACTIVAR ESCALADO EN HOVER EN MÓVIL PARA QUE NO SE CORTE */
-    .seccion-equipamiento .indabi-card:hover {
-        transform: none;
-    }
-
-    .seccion-equipamiento .indabi-card:hover .card-image img {
-        transform: none;
-    }
-
     .indabi-grid-container {
         grid-template-columns: 1fr;
         gap: 0;
@@ -1330,13 +1445,82 @@ section {
     .indabi-card {
         padding-top: 25px;
         margin-top: 25px;
-        border-top: 1px solid #e0e0e0;
+        border-top: 1px solid #cccccc;
     }
 
     .indabi-grid-container .indabi-card:first-child {
         border-top: none;
         padding-top: 0;
         margin-top: 0;
+    }
+
+    .grid-aguas-layout {
+        grid-template-columns: 1fr !important;
+    }
+
+    .aguas-card-wrapper {
+        flex-direction: column;
+        padding: 24px 20px;
+        min-height: auto;
+        justify-content: flex-start;
+    }
+
+    .aguas-logo-box {
+        display: none;
+    }
+
+    .logo-bandita-mobile {
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .img-bandita-svg {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+        display: block;
+    }
+
+    .pastilla-texto-inline {
+        font-size: 1rem;
+        padding: 4px 8px;
+    }
+
+    .aguas-col-left {
+        width: 100%;
+    }
+
+    .aguas-col-right-iconos {
+        display: none;
+    }
+
+    .aguas-iconos-mobile {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        margin: 20px 0 25px 0;
+    }
+
+    .pilar-agua-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        color: #ffffff;
+        font-size: 0.95rem;
+        font-weight: 600;
+    }
+
+    .icono-svg-agua {
+        width: 36px;
+        height: 36px;
+        object-fit: contain;
+        flex-shrink: 0;
+    }
+
+    .btn-visitar-agua {
+        width: 100%;
+        justify-content: center;
     }
 
     .grilla-horario {
@@ -1355,27 +1539,6 @@ section {
         width: 100%;
         min-height: auto;
         padding: 30px 24px;
-    }
-
-    .tarjeta-poster-agua {
-        min-height: 380px;
-        width: 100%;
-        padding: 20px 16px;
-    }
-
-    .poster-text {
-        padding: 0 10px;
-    }
-
-    .btn-visitar-agua {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .poster-title span {
-        font-size: 0.95rem;
-        display: inline;
-        line-height: 1.4;
     }
 
     .header-grid {
@@ -1444,13 +1607,10 @@ section {
         padding: 25px 20px;
     }
 
-    /* BANNER FOOTER AL 100% EN MÓVIL Y CON ESQUINAS SUPERIORES REDONDEADAS (AJUSTE Y IMAGEN 2) */
     .footer-hero-container {
         max-width: 100vw;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
         overflow: hidden;
     }
 
@@ -1532,5 +1692,12 @@ section {
 
     .footer-waves-svg {
         height: 80px;
+    }
+
+    .btn-back-to-top {
+        bottom: 15px;
+        right: 15px;
+        padding: 8px 12px;
+        font-size: 0.75rem;
     }
 }
