@@ -37,6 +37,99 @@ section {
     margin-bottom: 50px;
 }
 
+
+/* --- BLOQUE 1: HEADER Y PORTADA --- */
+.hero-header {
+    background-image: url('../img/head_icons.png'), url('../img/head_gradiente.png');
+    background-position: center bottom, center top;
+    background-repeat: no-repeat, repeat-x;
+    background-size: contain, 100% 100%;
+    padding: 75px 0 0 0;
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Corta la imagen si sobresale por arriba */
+}
+
+/* Imágenes laterales para Desktop */
+.hero-bg-img {
+    position: absolute;
+    bottom: 0;
+    height: auto;
+    max-height: 100%; /* Ajusta al alto del header */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-bg-izq {
+    left: 0;
+    object-fit: contain;
+    object-position: bottom left;
+}
+
+.hero-bg-der {
+    right: 0;
+    object-fit: contain;
+    object-position: bottom right;
+}
+
+/* Imagen para Mobile (oculta en Desktop) */
+.hero-bg-mobile {
+    display: none;
+}
+
+.header-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    z-index: 2; /* Mantiene logo y mascotas sobre las imágenes laterales */
+}
+
+.logo-box {
+    padding-bottom: 25px;
+}
+
+@media (max-width: 850px) {
+    /* Ocultar imágenes laterales de desktop */
+    .hero-bg-img {
+        display: none;
+    }
+
+    /* Mostrar e integrar imagen colgada arriba a la derecha para Mobile */
+    .hero-bg-mobile {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        max-width: 60%;
+        height: auto;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .hero-header {
+        position: relative;
+    }
+}
+
+.logo-img {
+    max-width: 420px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.mascotas-box {
+    display: flex;
+    align-items: flex-end;
+}
+
+.mascotas-img {
+    max-width: 480px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
 .container-1200 {
     max-width: 1200px;
     width: 100%;
