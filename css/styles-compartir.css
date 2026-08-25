@@ -418,6 +418,11 @@ section {
     flex-direction: column;
 }
 
+.col-app .btn-share-wsp {
+    width: 100%;
+    margin-top: 15px;
+}
+
 .box-mano-celular {
     width: 100%;
     display: flex;
