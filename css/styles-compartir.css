@@ -1,0 +1,1901 @@
+/* --- VARIABLES DE MARCA --- */
+:root {
+    --color-primario: #b5005b;
+    --color-secundario: #6b2d7d;
+    --color-menu-mobile: #582866;
+    --color-whatsapp: #25d366;
+    --color-texto: #333333;
+    --color-blanco: #ffffff;
+    --gradiente-marca: linear-gradient(90deg, var(--color-primario) 0%, var(--color-secundario) 100%);
+    --fuente-principal: 'Montserrat', sans-serif;
+}
+
+/* --- RESET GENERAL Y BASES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    width: 100%;
+    max-width: 100vw;
+    font-family: var(--fuente-principal);
+    color: var(--color-texto);
+    background-color: var(--color-blanco);
+}
+
+body {
+    overflow-x: hidden;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+/* ==========================================
+   ANIMACIÓN REVEAL ON SCROLL (GPU ACCELERATED)
+   ========================================== */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+    will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- BLOQUE 1: HEADER Y PORTADA --- */
+.hero-header {
+    background-image: url('../img/head_icons.png'), url('../img/head_gradiente.png');
+    background-position: center bottom, center top;
+    background-repeat: no-repeat, repeat-x;
+    background-size: contain, 100% 100%;
+    padding: 75px 0 0 0;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Imágenes laterales para Desktop */
+.hero-bg-img {
+    position: absolute;
+    bottom: 0;
+    height: auto;
+    max-height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-bg-izq {
+    left: 0;
+    object-fit: contain;
+    object-position: bottom left;
+}
+
+.hero-bg-der {
+    right: 0;
+    object-fit: contain;
+    object-position: bottom right;
+}
+
+/* Imagen para Mobile (oculta en Desktop) */
+.hero-bg-mobile {
+    display: none;
+}
+
+.header-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    z-index: 2;
+}
+
+.logo-box {
+    padding-bottom: 25px;
+}
+
+.logo-img {
+    max-width: 420px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.mascotas-box {
+    display: flex;
+    align-items: flex-end;
+}
+
+.mascotas-img {
+    max-width: 480px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container-1200 {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+}
+
+#bloque-telefonos-ancla {
+    scroll-margin-top: 100px;
+}
+
+/* LÍNEA ÚNICA DE ANIVERSARIO */
+.linea-fina-1200 {
+    border: none;
+    border-top: 3px solid #b5005b;
+    margin: 25px auto 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    opacity: 0.9;
+}
+
+.linea-separadora-mobile {
+    display: none;
+    border: none;
+    border-top: 1px solid #cccccc;
+    margin: 30px auto;
+    width: calc(100% - 40px);
+    max-width: 1160px;
+}
+
+/* --- MENÚ DE NAVEGACIÓN --- */
+.navbar-indabi {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  background: var(--gradiente-marca);
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 8px 0;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+.icono-nav-izquierda {
+  display: none;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 10px;
+  width: 100%;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.nav-menu li a.btn-resultados {
+  background-color: #ffffff;
+  color: #6b357b;
+  font-weight: 700;
+  border-radius: 20px;
+  padding: 7px 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  border: 2px solid #ffffff;
+}
+
+.nav-menu li.nav-right {
+  margin-left: auto;
+}
+
+.nav-menu li a.btn-whatsapp-nav {
+  background-color: transparent;
+  color: var(--color-whatsapp);
+  font-weight: 600;
+  border-radius: 20px;
+  padding: 6px 16px;
+  border: 2px solid var(--color-whatsapp);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+}
+
+.nav-menu li a.btn-whatsapp-nav:hover {
+  background-color: var(--color-whatsapp);
+  color: #ffffff;
+  border-color: var(--color-whatsapp);
+}
+
+.icono-wsp {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.nav-icon-download {
+  display: none;
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.hamburger {
+  display: none;
+}
+
+.banner-aniversario {
+    text-align: left;
+    padding: 20px 0 0 0;
+}
+
+.banner-aniversario h3 {
+    color: var(--color-primario);
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.45;
+}
+
+/* --- BLOQUE 2: ÁREAS DE SERVICIO --- */
+.areas-servicio {
+    background-color: #f5f5f7;
+    border-top: none;
+    padding: 35px 0 50px 0;
+    width: 100%;
+}
+
+.card-titulo-areas {
+    background: var(--gradiente-marca);
+    border-radius: 16px;
+    padding: 24px 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 14px rgba(107, 45, 125, 0.2);
+}
+
+.titulo-areas-diagnosticas {
+    color: #ffffff;
+    font-size: 1.35rem;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: left;
+    position: relative;
+    padding-left: 22px;
+}
+
+.titulo-areas-diagnosticas::before {
+    content: "›";
+    position: absolute;
+    left: 0;
+    top: -2px;
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 900;
+}
+
+.titulo-areas-diagnosticas strong {
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.grilla-areas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.tarjeta-area {
+    border: 1px solid #e0e0e0;
+    border-radius: 14px;
+    padding: 20px 24px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    min-height: 92px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarjeta-area:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.tarjeta-area-content {
+    position: relative;
+    padding-left: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.tarjeta-area-content::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 3px;
+    bottom: 3px;
+    width: 5px;
+    background-color: var(--color-primario);
+    border-radius: 3px;
+}
+
+.tarjeta-area ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tarjeta-area li {
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: #111111;
+    line-height: 1.3;
+    position: relative;
+    padding-left: 14px;
+    transition: color 0.2s ease;
+}
+
+.tarjeta-area li::before {
+    content: "›";
+    position: absolute;
+    left: 0;
+    color: var(--color-primario);
+    font-weight: 900;
+    font-size: 1.2rem;
+    line-height: 1;
+    top: 1px;
+}
+
+/* --- BLOQUE 3: CONSULTORÍA Y APP --- */
+.header-seccion {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.icono-servicio {
+    width: 85px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.header-seccion h2 {
+    color: #b4005b;
+    font-size: 1.65rem;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.grilla-consultoria {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.col-app {
+    flex: 0 0 280px;
+    max-width: 280px;
+    display: flex;
+    flex-direction: column;
+}
+
+.box-mano-celular {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.img-mano-celular {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    display: block;
+}
+
+.texto-app h3 {
+    color: #702570;
+    font-size: 1.35rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.texto-app p {
+    font-size: 0.95rem;
+    color: #333333;
+    line-height: 1.45;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.btn-acceso-online {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 10px 14px;
+    border: 1.5px solid #6b2670;
+    border-radius: 10px;
+    color: #333333;
+    font-weight: 600;
+    font-size: 0.88rem;
+    text-decoration: none;
+    margin-bottom: 15px;
+    transition: all 0.2s ease;
+}
+
+.btn-acceso-online:hover {
+    background-color: #6b2670;
+    color: #ffffff;
+}
+
+.box-descarga-app {
+    background-color: #e9e9eb;
+    border-radius: 14px;
+    padding: 14px;
+    text-align: center;
+}
+
+.subtitulo-app {
+    display: block;
+    color: var(--color-primario);
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.botones-store-row {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.botones-store-row a img {
+    height: 32px;
+    width: auto;
+    display: block;
+}
+
+.col-tarjeta-gris {
+    flex: 1;
+    min-width: 0;
+}
+
+.box-consultoria {
+    background-color: #f7f7f7;
+    border-radius: 20px;
+    padding: 35px 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.box-consultoria h3 {
+    color: #702570;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 16px;
+    line-height: 1.25;
+}
+
+.box-consultoria p {
+    font-size: 1rem;
+    color: #333333;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+.box-red-labs {
+    text-align: center;
+    width: 100%;
+}
+
+.img-red-labs {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* --- BLOQUE 4: CERTIFICACIÓN ISO 9001 --- */
+.seccion-certificacion {
+    width: 100%;
+    background-color: #0b62a4;
+    padding: 50px 0;
+    color: #ffffff;
+}
+
+.grilla-certificacion {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.col-foto-lab {
+    width: 100%;
+    max-width: 730px;
+    flex-shrink: 0;
+}
+
+.img-foto-lab {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+}
+
+.col-info-iso {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sello-iram-box {
+    width: 100%;
+    max-width: 380px;
+    margin-bottom: 25px;
+    border-radius: 20px;
+    overflow: hidden;
+    align-self: flex-start;
+}
+
+.img-sello-iram {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+}
+
+.col-info-iso h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.25;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.col-info-iso p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #e0f0fc;
+    font-weight: 400;
+}
+
+/* --- BLOQUE 5: DETERMINACIONES --- */
+.card-determinaciones {
+    background-color: #f5f5f7;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    gap: 20px;
+}
+
+.col-celular-planilla {
+    flex: 0 0 32%;
+    max-width: 420px;
+    align-self: flex-end;
+    display: flex;
+}
+
+.img-celular-planilla {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.col-texto-determinaciones {
+    flex: 1.15;
+    padding: 30px 10px;
+}
+
+.col-texto-determinaciones h2 {
+    color: #6b2670;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: 15px;
+}
+
+.col-texto-determinaciones p {
+    color: #333333;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.btn-descarga-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    padding: 10px 18px;
+    border: 2px solid #6b2670;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #6b2670;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.25;
+    transition: all 0.2s ease;
+}
+
+.btn-descarga-link:hover {
+    background-color: #6b2670;
+    color: #ffffff;
+}
+
+.icono-download {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+.col-veterinaria-foto {
+    flex: 0 0 32%;
+    align-self: stretch;
+    display: flex;
+    align-items: flex-end;
+}
+
+.img-veterinaria-foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ==========================================
+   ESTÁNDAR GLOBAL DE GRILLA DE 3 TARJETAS
+   ========================================== */
+.indabi-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    width: 100%;
+}
+
+.indabi-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    transition: transform 0.25s ease;
+}
+
+.indabi-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    margin-bottom: 16px;
+    border-radius: 20px;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+    transition: transform 0.35s ease;
+}
+
+.indabi-card:hover .card-image img {
+    transform: scale(1.03);
+}
+
+/* TITULOS DE TARJETAS EN BOLD UNIFICADOS */
+.card-title {
+    color: #6b2670;
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 0 0 10px 0;
+}
+
+.card-text {
+    color: #333333;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.btn-doc-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    padding: 8px 12px;
+    border: 1.5px solid #6b2670;
+    border-radius: 8px;
+    color: #6b2670;
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.25;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    background-color: #ffffff;
+}
+
+.btn-doc-link svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.btn-doc-link:hover {
+    background-color: #6b2670;
+    color: #ffffff;
+}
+
+.box-botones-duchenne {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+/* ==========================================
+   ESTILOS DE BOTONES COMPARTIR POR WHATSAPP
+   ========================================== */
+.btn-share-wsp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 8px 16px;
+    border: 1.5px solid #25d366;
+    background-color: transparent;
+    color: #25d366;
+    border-radius: 20px;
+    font-family: var(--fuente-principal);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+}
+
+/* Ícono SVG estilizado aisladamente */
+.wsp-icon-svg {
+    width: 16px !important;
+    height: 16px !important;
+    min-width: 16px !important;
+    min-height: 16px !important;
+    max-width: 16px !important;
+    max-height: 16px !important;
+    fill: currentColor !important;
+    flex-shrink: 0 !important;
+    display: inline-block !important;
+}
+
+.btn-share-wsp:hover {
+    background-color: #25d366;
+    color: #ffffff;
+    box-shadow: 0 3px 10px rgba(37, 211, 102, 0.3);
+}
+
+/* Variante de botón sobre fondo oscuro / violeta / azul */
+.btn-share-wsp-blanco {
+    border-color: rgba(255, 255, 255, 0.8);
+    color: #ffffff;
+}
+
+.btn-share-wsp-blanco:hover {
+    background-color: #ffffff;
+    color: var(--color-secundario);
+    border-color: #ffffff;
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.25);
+}
+
+/* ==========================================
+   ESTRUCTURA Y GRILLA DE TARJETA AGUAS
+   ========================================== */
+@media (min-width: 851px) {
+    .grid-aguas-layout {
+        grid-template-columns: 1fr 2fr !important;
+    }
+
+    .tarjeta-doble-aguas {
+        grid-column: span 1 !important;
+    }
+}
+
+.aguas-card-wrapper {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    border-radius: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 35px 40px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-bandita-mobile {
+    display: none;
+}
+
+.aguas-iconos-mobile {
+    display: none;
+}
+
+.aguas-col-left {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    z-index: 2;
+}
+
+.aguas-logo-box {
+    max-width: 220px;
+    margin-bottom: auto;
+}
+
+.img-logo-aguas-grande {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.box-pastilla-wrapper {
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.aguas-titulo-celeste {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.pastilla-texto-inline {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #1f4d6a;
+    font-size: 1.15rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 8px;
+    display: inline;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.aguas-bajada-texto {
+    color: #ffffff;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    margin-bottom: 20px;
+    max-width: 420px;
+    font-weight: 400;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.btn-visitar-agua {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1.5px solid rgba(255, 255, 255, 0.6);
+    color: #ffffff;
+    padding: 10px 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.25s ease;
+    align-self: flex-start;
+}
+
+.btn-visitar-agua:hover {
+    background: rgba(255, 255, 255, 1);
+    color: #0b62a4;
+    border-color: #ffffff;
+}
+
+.icono-gota {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+.aguas-col-right-iconos {
+    flex: 0 0 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 25px;
+    z-index: 2;
+    margin-right: 10px;
+}
+
+.pilar-agua-item-desktop {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.25;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.icono-svg-agua-grande {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* --- BLOQUE 7: SECCIÓN HORARIO --- */
+.grilla-horario {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 28px;
+    width: 100%;
+}
+
+.col-horario-foto {
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+}
+
+.img-horario-izq {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+}
+
+.col-horario-card {
+    background-color: #6b2670;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    padding: 35px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #ffffff;
+    min-height: 320px;
+}
+
+.horario-icono-box {
+    margin-bottom: 20px;
+}
+
+.img-horario-icono {
+    max-width: 110px;
+    height: auto;
+    display: block;
+}
+
+.horario-texto-box h2 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 14px;
+    color: #ffffff;
+}
+
+.horario-texto-box p {
+    font-size: 0.95rem;
+    line-height: 1.45;
+    color: #f3e5f4;
+    font-weight: 400;
+}
+
+/* --- BLOQUE 9: EQUIPAMIENTO --- */
+.seccion-equipamiento {
+    width: 100%;
+    background-color: #6d4b7e;
+    border-top: 6px solid var(--color-primario);
+    padding: 50px 0;
+}
+
+.titulo-equipamiento {
+    color: #ffffff;
+    font-size: 1.75rem;
+    font-weight: 400;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.texto-blanco {
+    color: #ffffff;
+}
+
+.texto-blanco-suave {
+    color: #f1e6f3;
+}
+
+/* --- BLOQUE CONVENIO UNER --- */
+.card-convenio {
+    background-color: #f7f7f8;
+    border-radius: 20px;
+    padding: 40px;
+}
+
+.convenio-title {
+    color: #6b2670;
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom: 30px;
+}
+
+.convenio-title .texto-magenta {
+    color: var(--color-primario);
+    font-weight: 700;
+}
+
+.convenio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.convenio-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.convenio-text p {
+    color: #333333;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+/* ==========================================
+   FOOTER Y BOTÓN FLOTANTE "SUBIR"
+   ========================================== */
+.seccion-footer-indabi {
+  width: 100%;
+  margin: 0 auto;
+  color: #333333;
+  background-color: #ffffff;
+  position: relative;
+  margin-bottom: 0;
+}
+
+.footer-hero-banner {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.footer-hero-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  overflow: hidden;
+}
+
+.footer-hero-title {
+  position: absolute;
+  top: calc(10% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffffff;
+  font-size: 2.2rem;
+  font-weight: 800;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.footer-hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.footer-pilares-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 40px 20px 30px 20px;
+  justify-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pilar-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 320px;
+}
+
+.pilar-flecha {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pilar-contenido h3 {
+  color: #b8006b;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+}
+
+.pilar-contenido p {
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: #444444;
+  font-weight: 400;
+}
+
+.footer-destacado-telefonos {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    border-top: 1px dashed #cccccc;
+    padding-top: 35px;
+    margin-top: 10px;
+}
+
+.footer-destacado-logo {
+    flex: 0 0 270px;
+}
+
+.destacado-logo-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.footer-destacado-info {
+    flex: 1;
+    margin-left: 45px;
+}
+
+.horario-destacado-texto {
+    color: #6b2670;
+    font-size: 1.15rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.grid-tarjetas-wsp {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.card-wsp-item {
+    background-color: #ffffff;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+    display: block;
+}
+
+.card-wsp-item:hover {
+    transform: translateY(-3px);
+}
+
+.card-wsp-subtitulo {
+    display: block;
+    color: #555555;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.card-wsp-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icono-wsp-grande {
+    width: 38px;
+    height: 38px;
+    fill: var(--color-whatsapp);
+    flex-shrink: 0;
+}
+
+.numero-tel {
+    color: #6b2670;
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.numero-tel small {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.footer-bottom-wrapper {
+    padding: 0 20px;
+}
+
+.footer-bottom-row {
+  border-top: 1px dashed #cccccc;
+  border-bottom: 1px dashed #cccccc;
+  padding: 30px 0;
+  margin: 35px 0 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  width: 100%;
+}
+
+.qr-simple-block {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  max-width: 360px;
+  margin-left: 0;
+}
+
+.qr-img {
+  width: 95px;
+  height: 95px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.qr-text-simple {
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 600;
+  color: #333333;
+}
+
+.footer-contact-cols3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  font-size: 12.5px;
+  color: #444444;
+  flex: 1;
+}
+
+.contact-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.contact-icon-flecha {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.contact-item a {
+  color: #444444;
+  text-decoration: none;
+}
+
+.footer-waves-container {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    margin-top: 20px;
+}
+
+.footer-waves-svg {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 140px;
+}
+
+/* BOTÓN FLOTANTE "SUBIR" */
+.btn-back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 999;
+    background: var(--gradiente-marca);
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.25s ease;
+}
+
+.btn-back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.btn-back-to-top svg {
+    width: 18px;
+    height: 18px;
+}
+
+.btn-back-to-top:hover {
+    transform: translateY(-4px);
+}
+
+/* ==========================================
+   AJUSTES RESPONSIVE UNIFICADOS (MOBILE < 850px)
+   ========================================== */
+@media (max-width: 850px) {
+    .hero-bg-img {
+        display: none;
+    }
+
+    .hero-bg-mobile {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        max-width: 60%;
+        height: auto;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .hero-header {
+        position: relative;
+    }
+
+    .linea-separadora-mobile {
+        display: block;
+    }
+
+    section {
+        margin-bottom: 35px;
+    }
+
+    .card-titulo-areas {
+        padding: 18px 20px;
+    }
+
+    .titulo-areas-diagnosticas {
+        font-size: 1.15rem;
+    }
+
+    .header-seccion {
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .icono-servicio {
+        width: 55px;
+    }
+
+    .header-seccion h2 {
+        font-size: 1.25rem;
+        text-align: left;
+    }
+
+    .nav-container {
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      padding: 0 16px;
+    }
+
+    .icono-nav-izquierda {
+      display: block;
+      height: 22px;
+      width: auto;
+      margin-left: 8px;
+      flex-shrink: 0;
+    }
+
+    .hamburger {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 6px;
+      padding: 6px 12px;
+      cursor: pointer;
+      z-index: 1000000;
+      margin-left: auto;
+    }
+
+    .hamburger-label {
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      line-height: 1;
+    }
+
+    .hamburger-bars {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 18px;
+      height: 14px;
+    }
+
+    .hamburger-bars span {
+      width: 100%;
+      height: 2px;
+      background-color: #ffffff;
+      border-radius: 2px;
+    }
+
+    .navbar-indabi .nav-menu {
+      display: flex;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 82vw;
+      max-width: 320px;
+      height: 100vh;
+      background-color: var(--color-menu-mobile);
+      flex-direction: column;
+      padding: 80px 16px 30px 16px;
+      gap: 10px;
+      box-shadow: -6px 0 20px rgba(0, 0, 0, 0.35);
+      z-index: 999999;
+      transform: translateX(100%);
+      transition: transform 0.35s ease;
+      overflow-y: auto;
+    }
+
+    .navbar-indabi .nav-menu.active {
+      transform: translateX(0);
+    }
+
+    .nav-menu li {
+      width: 100%;
+    }
+
+    .nav-menu li.nav-right {
+      margin-left: 0;
+      margin-top: 5px;
+    }
+
+    .nav-menu li a {
+      width: 100%;
+      justify-content: flex-start;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    .nav-icon-download {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      margin-right: 10px;
+    }
+
+    .box-consultoria {
+        display: flex;
+        flex-direction: column;
+        padding: 24px 20px;
+    }
+
+    .box-consultoria h3 {
+        order: 1;
+        margin-bottom: 15px;
+    }
+
+    .box-consultoria .box-red-labs {
+        order: 2;
+        margin-bottom: 20px;
+    }
+
+    .box-consultoria p {
+        order: 3;
+        margin-bottom: 0;
+    }
+
+    .box-descarga-app {
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    .seccion-equipamiento .indabi-grid-container {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 15px;
+        padding-right: 40px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .seccion-equipamiento .indabi-card {
+        flex: 0 0 85%;
+        scroll-snap-align: start;
+        border-top: none;
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+    .indabi-grid-container {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .indabi-card {
+        padding-top: 25px;
+        margin-top: 25px;
+        border-top: 1px solid #cccccc;
+    }
+
+    .indabi-grid-container .indabi-card:first-child {
+        border-top: none;
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+    .grid-aguas-layout {
+        grid-template-columns: 1fr !important;
+    }
+
+    .seccion-otras-tarjetas .container-1200 {
+        padding: 0 20px;
+    }
+
+    .aguas-card-wrapper {
+        flex-direction: column;
+        padding: 24px 20px;
+        min-height: auto;
+        justify-content: flex-start;
+        border-radius: 20px;
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    .aguas-logo-box {
+        display: none;
+    }
+
+    .logo-bandita-mobile {
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .img-bandita-svg {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+        display: block;
+    }
+
+    .pastilla-texto-inline {
+        font-size: 1rem;
+        padding: 4px 8px;
+    }
+
+    .aguas-col-left {
+        width: 100%;
+    }
+
+    .aguas-col-right-iconos {
+        display: none;
+    }
+
+    .aguas-iconos-mobile {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 20px 0 25px 0;
+    }
+
+    .pilar-agua-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        color: #ffffff;
+        font-size: 0.95rem;
+        font-weight: 600;
+    }
+
+    .icono-svg-agua {
+        width: 36px;
+        height: 36px;
+        object-fit: contain;
+        flex-shrink: 0;
+    }
+
+    .btn-visitar-agua {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .grilla-horario {
+        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .col-horario-foto {
+        width: 100%;
+        height: 240px;
+    }
+
+    .col-horario-card {
+        width: 100%;
+        min-height: auto;
+        padding: 30px 24px;
+    }
+
+    .header-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo-img {
+        max-width: 280px;
+    }
+
+    .mascotas-img {
+        max-width: 310px;
+    }
+
+    .grilla-areas {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 15px;
+    }
+
+    .tarjeta-area {
+        flex: 0 0 80%;
+        scroll-snap-align: start;
+    }
+
+    .grilla-consultoria, .grilla-certificacion, .convenio-grid {
+        flex-direction: column;
+        display: flex;
+        gap: 25px;
+    }
+
+    .col-app, .col-foto-lab {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .col-veterinaria-foto {
+        display: none;
+    }
+
+    .card-determinaciones {
+        flex-direction: column;
+        padding: 24px 18px;
+    }
+
+    .col-celular-planilla {
+        align-self: flex-start;
+        margin-left: -18px;
+        max-width: 100%;
+    }
+
+    .col-texto-determinaciones h2 {
+        margin-top: -10px;
+        margin-bottom: 10px;
+    }
+
+    .btn-descarga-link {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .card-convenio {
+        padding: 25px 20px;
+    }
+
+    .footer-hero-container {
+        width: 100vw;
+        max-width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+        border-radius: 0;
+        overflow: hidden;
+    }
+
+    .footer-hero-img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .footer-hero-title {
+      font-size: 0.75rem;
+      line-height: 1.25;
+      white-space: normal;
+      top: calc(6% + 2px);
+      width: 90%;
+      padding: 0 10px;
+      box-sizing: border-box;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+    }
+
+    .footer-pilares-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .footer-destacado-telefonos {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-destacado-logo {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 260px;
+        margin: 0 auto;
+    }
+
+    .footer-destacado-info {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .grid-tarjetas-wsp {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .numero-tel {
+        font-size: 1.6rem;
+    }
+
+    .footer-bottom-wrapper {
+        padding: 0 20px;
+    }
+
+    .footer-bottom-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+        padding: 25px 0;
+        margin: 20px 0;
+    }
+
+    .qr-simple-block {
+        width: 100%;
+        max-width: 100%;
+        background-color: #f5f5f7;
+        padding: 18px;
+        border-radius: 16px;
+        box-sizing: border-box;
+    }
+
+    .qr-img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .qr-text-simple {
+        font-size: 13.5px;
+        line-height: 1.4;
+    }
+
+    .footer-contact-cols3 {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .contact-item {
+        font-size: 14px;
+    }
+
+    .footer-waves-svg {
+        height: 80px;
+    }
+
+    .btn-back-to-top {
+        bottom: 15px;
+        right: 15px;
+        padding: 8px 12px;
+        font-size: 0.75rem;
+    }
+}
+
+tr.category-header td {
+  background-color: #f0d5e5;
+  color: #80235f;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  padding: 14px 15px;
+  border-top: 2px solid #80235f;
+}
