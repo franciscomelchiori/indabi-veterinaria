@@ -1,11 +1,15 @@
-/* --- VARIABLES DE MARCA --- */
+/* --- VARIABLES DE MARCA CONSOLIDADAS --- */
 :root {
     --color-primario: #b5005b;
+    --color-primario-oscuro: #6b2670;
     --color-secundario: #6b2d7d;
     --color-menu-mobile: #582866;
     --color-whatsapp: #25d366;
+    --color-aguas: #0b62a4;
+    --color-aguas-fondo: #e0f0fc;
     --color-texto: #333333;
     --color-blanco: #ffffff;
+    --color-tarjeta-bg: #f5f5f7;
     --gradiente-marca: linear-gradient(90deg, var(--color-primario) 0%, var(--color-secundario) 100%);
     --fuente-principal: 'Montserrat', sans-serif;
 }
@@ -54,7 +58,7 @@ section {
 
 /* --- BLOQUE 1: HEADER Y PORTADA --- */
 .hero-header {
-    background-image: url('../img/head_icons.png'), url('../img/head_gradiente.png');
+    background-image: url('../img/hero-bg-pattern-icons.png'), url('../img/hero-bg-gradient.png');
     background-position: center bottom, center top;
     background-repeat: no-repeat, repeat-x;
     background-size: contain, 100% 100%;
@@ -64,7 +68,6 @@ section {
     overflow: hidden;
 }
 
-/* Imágenes laterales para Desktop */
 .hero-bg-img {
     position: absolute;
     bottom: 0;
@@ -86,7 +89,6 @@ section {
     object-position: bottom right;
 }
 
-/* Imagen para Mobile (oculta en Desktop) */
 .hero-bg-mobile {
     display: none;
 }
@@ -136,10 +138,9 @@ section {
     scroll-margin-top: 100px;
 }
 
-/* LÍNEA ÚNICA DE ANIVERSARIO */
 .linea-fina-1200 {
     border: none;
-    border-top: 3px solid #b5005b;
+    border-top: 3px solid var(--color-primario);
     margin: 25px auto 0 auto;
     width: 100%;
     max-width: 1200px;
@@ -155,7 +156,7 @@ section {
     max-width: 1160px;
 }
 
-/* --- MENÚ DE NAVEGACIÓN --- */
+/* --- MENÚ DE NAVEGACIÓN DESKTOP Y CENTRADO FLEXIBLE --- */
 .navbar-indabi {
   position: fixed;
   top: 0;
@@ -170,33 +171,31 @@ section {
 .nav-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  max-width: 1200px;
+  justify-content: center;
+  max-width: 1400px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 20px;
   position: relative;
 }
 
-.icono-nav-izquierda {
-  display: none;
-}
-
 .nav-menu {
   display: flex;
   align-items: center;
+  justify-content: center;
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 10px;
+  gap: 8px;
   width: 100%;
 }
 
 .nav-menu li a {
   text-decoration: none;
-  color: #ffffff;
-  font-size: 0.85rem;
+  color: var(--color-blanco);
+  font-size: 0.82rem;
   font-weight: 500;
-  padding: 8px 12px;
+  padding: 8px 10px;
   border-radius: 6px;
   transition: all 0.2s ease;
   white-space: nowrap;
@@ -206,21 +205,21 @@ section {
 
 .nav-menu li a:hover {
   background-color: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
+  color: var(--color-blanco);
 }
 
 .nav-menu li a.btn-resultados {
-  background-color: #ffffff;
-  color: #6b357b;
+  background-color: var(--color-blanco);
+  color: var(--color-secundario);
   font-weight: 700;
   border-radius: 20px;
   padding: 7px 16px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  border: 2px solid #ffffff;
+  border: 2px solid var(--color-blanco);
 }
 
 .nav-menu li.nav-right {
-  margin-left: auto;
+  margin-left: 8px;
 }
 
 .nav-menu li a.btn-whatsapp-nav {
@@ -228,7 +227,7 @@ section {
   color: var(--color-whatsapp);
   font-weight: 600;
   border-radius: 20px;
-  padding: 6px 16px;
+  padding: 6px 14px;
   border: 2px solid var(--color-whatsapp);
   display: inline-flex;
   align-items: center;
@@ -238,7 +237,7 @@ section {
 
 .nav-menu li a.btn-whatsapp-nav:hover {
   background-color: var(--color-whatsapp);
-  color: #ffffff;
+  color: var(--color-blanco);
   border-color: var(--color-whatsapp);
 }
 
@@ -248,7 +247,7 @@ section {
   fill: currentColor;
 }
 
-.nav-icon-download {
+.nav-icon-arrow {
   display: none;
   width: 16px;
   height: 16px;
@@ -274,7 +273,7 @@ section {
 
 /* --- BLOQUE 2: ÁREAS DE SERVICIO --- */
 .areas-servicio {
-    background-color: #f5f5f7;
+    background-color: var(--color-tarjeta-bg);
     border-top: none;
     padding: 35px 0 50px 0;
     width: 100%;
@@ -289,7 +288,7 @@ section {
 }
 
 .titulo-areas-diagnosticas {
-    color: #ffffff;
+    color: var(--color-blanco);
     font-size: 1.35rem;
     font-weight: 400;
     line-height: 1.4;
@@ -303,14 +302,14 @@ section {
     position: absolute;
     left: 0;
     top: -2px;
-    color: #ffffff;
+    color: var(--color-blanco);
     font-size: 1.6rem;
     font-weight: 900;
 }
 
 .titulo-areas-diagnosticas strong {
     font-weight: 700;
-    color: #ffffff;
+    color: var(--color-blanco);
 }
 
 .grilla-areas {
@@ -323,7 +322,7 @@ section {
     border: 1px solid #e0e0e0;
     border-radius: 14px;
     padding: 20px 24px;
-    background-color: #ffffff;
+    background-color: var(--color-blanco);
     display: flex;
     align-items: center;
     min-height: 92px;
@@ -398,7 +397,7 @@ section {
 }
 
 .header-seccion h2 {
-    color: #b4005b;
+    color: var(--color-primario);
     font-size: 1.65rem;
     font-weight: 400;
     line-height: 1.2;
@@ -433,7 +432,7 @@ section {
 }
 
 .texto-app h3 {
-    color: #702570;
+    color: var(--color-primario-oscuro);
     font-size: 1.35rem;
     font-weight: 400;
     line-height: 1.2;
@@ -442,7 +441,7 @@ section {
 
 .texto-app p {
     font-size: 0.95rem;
-    color: #333333;
+    color: var(--color-texto);
     line-height: 1.45;
     font-weight: 400;
     margin-bottom: 15px;
@@ -453,9 +452,9 @@ section {
     width: 100%;
     text-align: center;
     padding: 10px 14px;
-    border: 1.5px solid #6b2670;
+    border: 1.5px solid var(--color-primario-oscuro);
     border-radius: 10px;
-    color: #333333;
+    color: var(--color-texto);
     font-weight: 600;
     font-size: 0.88rem;
     text-decoration: none;
@@ -464,8 +463,8 @@ section {
 }
 
 .btn-acceso-online:hover {
-    background-color: #6b2670;
-    color: #ffffff;
+    background-color: var(--color-primario-oscuro);
+    color: var(--color-blanco);
 }
 
 .box-descarga-app {
@@ -510,7 +509,7 @@ section {
 }
 
 .box-consultoria h3 {
-    color: #702570;
+    color: var(--color-primario-oscuro);
     font-size: 1.4rem;
     font-weight: 400;
     margin-bottom: 16px;
@@ -519,7 +518,7 @@ section {
 
 .box-consultoria p {
     font-size: 1rem;
-    color: #333333;
+    color: var(--color-texto);
     line-height: 1.5;
     margin-bottom: 35px;
     font-weight: 400;
@@ -540,9 +539,9 @@ section {
 /* --- BLOQUE 4: CERTIFICACIÓN ISO 9001 --- */
 .seccion-certificacion {
     width: 100%;
-    background-color: #0b62a4;
+    background-color: var(--color-aguas);
     padding: 50px 0;
-    color: #ffffff;
+    color: var(--color-blanco);
 }
 
 .grilla-certificacion {
@@ -592,20 +591,20 @@ section {
     font-size: 1.5rem;
     font-weight: 400;
     line-height: 1.25;
-    color: #ffffff;
+    color: var(--color-blanco);
     margin-bottom: 20px;
 }
 
 .col-info-iso p {
     font-size: 1rem;
     line-height: 1.5;
-    color: #e0f0fc;
+    color: var(--color-aguas-fondo);
     font-weight: 400;
 }
 
 /* --- BLOQUE 5: DETERMINACIONES --- */
 .card-determinaciones {
-    background-color: #f5f5f7;
+    background-color: var(--color-tarjeta-bg);
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -633,7 +632,7 @@ section {
 }
 
 .col-texto-determinaciones h2 {
-    color: #6b2670;
+    color: var(--color-primario-oscuro);
     font-size: 1.4rem;
     font-weight: 400;
     line-height: 1.25;
@@ -641,7 +640,7 @@ section {
 }
 
 .col-texto-determinaciones p {
-    color: #333333;
+    color: var(--color-texto);
     font-size: 0.95rem;
     line-height: 1.5;
     font-weight: 400;
@@ -653,10 +652,10 @@ section {
     gap: 12px;
     margin-top: 20px;
     padding: 10px 18px;
-    border: 2px solid #6b2670;
+    border: 2px solid var(--color-primario-oscuro);
     border-radius: 12px;
     text-decoration: none;
-    color: #6b2670;
+    color: var(--color-primario-oscuro);
     font-size: 0.9rem;
     font-weight: 600;
     line-height: 1.25;
@@ -664,8 +663,8 @@ section {
 }
 
 .btn-descarga-link:hover {
-    background-color: #6b2670;
-    color: #ffffff;
+    background-color: var(--color-primario-oscuro);
+    color: var(--color-blanco);
 }
 
 .icono-download {
@@ -731,9 +730,8 @@ section {
     transform: scale(1.03);
 }
 
-/* TITULOS DE TARJETAS EN BOLD UNIFICADOS */
 .card-title {
-    color: #6b2670;
+    color: var(--color-primario-oscuro);
     font-size: 1.15rem;
     font-weight: 700;
     line-height: 1.35;
@@ -741,7 +739,7 @@ section {
 }
 
 .card-text {
-    color: #333333;
+    color: var(--color-texto);
     font-size: 0.92rem;
     line-height: 1.5;
     font-weight: 400;
@@ -753,15 +751,15 @@ section {
     gap: 8px;
     margin-top: 12px;
     padding: 8px 12px;
-    border: 1.5px solid #6b2670;
+    border: 1.5px solid var(--color-primario-oscuro);
     border-radius: 8px;
-    color: #6b2670;
+    color: var(--color-primario-oscuro);
     font-size: 0.82rem;
     font-weight: 600;
     line-height: 1.25;
     text-decoration: none;
     transition: all 0.2s ease;
-    background-color: #ffffff;
+    background-color: var(--color-blanco);
 }
 
 .btn-doc-link svg {
@@ -771,8 +769,8 @@ section {
 }
 
 .btn-doc-link:hover {
-    background-color: #6b2670;
-    color: #ffffff;
+    background-color: var(--color-primario-oscuro);
+    color: var(--color-blanco);
 }
 
 .box-botones-duchenne {
@@ -863,7 +861,7 @@ section {
 }
 
 .aguas-bajada-texto {
-    color: #ffffff;
+    color: var(--color-blanco);
     font-size: 0.95rem;
     line-height: 1.45;
     margin-bottom: 20px;
@@ -880,7 +878,7 @@ section {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border: 1.5px solid rgba(255, 255, 255, 0.6);
-    color: #ffffff;
+    color: var(--color-blanco);
     padding: 10px 18px;
     border-radius: 12px;
     text-decoration: none;
@@ -892,8 +890,8 @@ section {
 
 .btn-visitar-agua:hover {
     background: rgba(255, 255, 255, 1);
-    color: #0b62a4;
-    border-color: #ffffff;
+    color: var(--color-aguas);
+    border-color: var(--color-blanco);
 }
 
 .icono-gota {
@@ -916,7 +914,7 @@ section {
     display: flex;
     align-items: center;
     gap: 16px;
-    color: #ffffff;
+    color: var(--color-blanco);
     font-size: 0.95rem;
     font-weight: 600;
     line-height: 1.25;
@@ -953,7 +951,7 @@ section {
 }
 
 .col-horario-card {
-    background-color: #6b2670;
+    background-color: var(--color-primario-oscuro);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -962,7 +960,7 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: #ffffff;
+    color: var(--color-blanco);
     min-height: 320px;
 }
 
@@ -981,7 +979,7 @@ section {
     font-weight: 400;
     line-height: 1.2;
     margin-bottom: 14px;
-    color: #ffffff;
+    color: var(--color-blanco);
 }
 
 .horario-texto-box p {
@@ -1000,7 +998,7 @@ section {
 }
 
 .titulo-equipamiento {
-    color: #ffffff;
+    color: var(--color-blanco);
     font-size: 1.75rem;
     font-weight: 400;
     margin-bottom: 30px;
@@ -1008,7 +1006,7 @@ section {
 }
 
 .texto-blanco {
-    color: #ffffff;
+    color: var(--color-blanco);
 }
 
 .texto-blanco-suave {
@@ -1023,7 +1021,7 @@ section {
 }
 
 .convenio-title {
-    color: #6b2670;
+    color: var(--color-primario-oscuro);
     font-size: 1.3rem;
     font-weight: 400;
     line-height: 1.4;
@@ -1050,7 +1048,7 @@ section {
 }
 
 .convenio-text p {
-    color: #333333;
+    color: var(--color-texto);
     font-size: 1rem;
     line-height: 1.5;
     font-weight: 400;
@@ -1062,8 +1060,8 @@ section {
 .seccion-footer-indabi {
   width: 100%;
   margin: 0 auto;
-  color: #333333;
-  background-color: #ffffff;
+  color: var(--color-texto);
+  background-color: var(--color-blanco);
   position: relative;
   margin-bottom: 0;
 }
@@ -1071,7 +1069,7 @@ section {
 .footer-hero-banner {
   position: relative;
   width: 100%;
-  background-color: #ffffff;
+  background-color: var(--color-blanco);
 }
 
 .footer-hero-container {
@@ -1088,7 +1086,7 @@ section {
   top: calc(10% + 4px);
   left: 50%;
   transform: translateX(-50%);
-  color: #ffffff;
+  color: var(--color-blanco);
   font-size: 2.2rem;
   font-weight: 800;
   width: 100%;
@@ -1128,7 +1126,7 @@ section {
 }
 
 .pilar-contenido h3 {
-  color: #b8006b;
+  color: var(--color-primario);
   font-size: 18px;
   font-weight: 700;
   margin: 0 0 6px 0;
@@ -1166,7 +1164,7 @@ section {
 }
 
 .horario-destacado-texto {
-    color: #6b2670;
+    color: var(--color-primario-oscuro);
     font-size: 1.15rem;
     font-weight: 400;
     margin-bottom: 20px;
@@ -1179,7 +1177,7 @@ section {
 }
 
 .card-wsp-item {
-    background-color: #ffffff;
+    background-color: var(--color-blanco);
     border-radius: 12px;
     text-decoration: none;
     transition: transform 0.2s ease;
@@ -1212,7 +1210,7 @@ section {
 }
 
 .numero-tel {
-    color: #6b2670;
+    color: var(--color-primario-oscuro);
     font-size: 2rem;
     font-weight: 800;
     line-height: 1;
@@ -1258,7 +1256,7 @@ section {
   font-size: 13px;
   line-height: 1.4;
   font-weight: 600;
-  color: #333333;
+  color: var(--color-texto);
 }
 
 .footer-contact-cols3 {
@@ -1295,6 +1293,17 @@ section {
   text-decoration: none;
 }
 
+.footer-legal-notice {
+    padding: 10px 0 20px 0;
+    text-align: center;
+}
+
+.footer-legal-notice p {
+    font-size: 0.75rem;
+    color: #777777;
+    margin: 0;
+}
+
 .footer-waves-container {
     width: 100%;
     overflow: hidden;
@@ -1316,7 +1325,7 @@ section {
     right: 25px;
     z-index: 999;
     background: var(--gradiente-marca);
-    color: #ffffff;
+    color: var(--color-blanco);
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -1402,18 +1411,10 @@ section {
     }
 
     .nav-container {
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       position: relative;
       padding: 0 16px;
-    }
-
-    .icono-nav-izquierda {
-      display: block;
-      height: 22px;
-      width: auto;
-      margin-left: 8px;
-      flex-shrink: 0;
     }
 
     .hamburger {
@@ -1426,30 +1427,19 @@ section {
       padding: 6px 12px;
       cursor: pointer;
       z-index: 1000000;
-      margin-left: auto;
+    }
+
+    .icono-nav-menu {
+      height: 18px;
+      width: auto;
     }
 
     .hamburger-label {
-      color: #ffffff;
+      color: var(--color-blanco);
       font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 0.5px;
       line-height: 1;
-    }
-
-    .hamburger-bars {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 18px;
-      height: 14px;
-    }
-
-    .hamburger-bars span {
-      width: 100%;
-      height: 2px;
-      background-color: #ffffff;
-      border-radius: 2px;
     }
 
     .navbar-indabi .nav-menu {
@@ -1492,10 +1482,10 @@ section {
       border-radius: 8px;
       font-size: 0.85rem;
       text-transform: uppercase;
-      color: #ffffff;
+      color: var(--color-blanco);
     }
 
-    .nav-icon-download {
+    .nav-icon-arrow {
       display: inline-block;
       width: 18px;
       height: 18px;
@@ -1523,9 +1513,10 @@ section {
         margin-bottom: 0;
     }
 
+    /* AJUSTE PARA DESPEGAR LOS BOTONES DE APP STORE DEL FONDO GRIS EN MOBILE */
     .box-descarga-app {
         border-bottom: none;
-        padding-bottom: 0;
+        padding: 14px 14px 18px 14px;
         margin-bottom: 0;
     }
 
@@ -1624,7 +1615,7 @@ section {
         display: flex;
         align-items: center;
         gap: 14px;
-        color: #ffffff;
+        color: var(--color-blanco);
         font-size: 0.95rem;
         font-weight: 600;
     }
@@ -1797,7 +1788,7 @@ section {
     .qr-simple-block {
         width: 100%;
         max-width: 100%;
-        background-color: #f5f5f7;
+        background-color: var(--color-tarjeta-bg);
         padding: 18px;
         border-radius: 16px;
         box-sizing: border-box;
@@ -1836,12 +1827,12 @@ section {
     }
 }
 
-tr.category-header td {
-  background-color: #f0d5e5;
-  color: #80235f;
-  font-size: 15px;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-  padding: 14px 15px;
-  border-top: 2px solid #80235f;
+/* ACCESIBILIDAD - DESACTIVAR MOVIMIENTO PARA PREFERS-REDUCED-MOTION */
+@media (prefers-reduced-motion: reduce) {
+    .reveal-on-scroll {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
 }
