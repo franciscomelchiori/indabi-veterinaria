@@ -4,42 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>INDABI - Listado de Determinaciones (División Veterinaria)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --color-primario: #b5005b;
+      --color-secundario: #6b2d7d;
+      --gradiente-marca: linear-gradient(90deg, var(--color-primario) 0%, var(--color-secundario) 100%);
+      --color-bg-rosado: #fbf0f5;
+      --color-texto: #333333;
+    }
+
     body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
       background-color: #f4f5f7;
-      color: #333;
+      color: var(--color-texto);
       margin: 0;
       padding: 0;
-    }
-
-    /* Header superior estático */
-    .header-single-line {
-      background-color: #ffffff;
-      border-bottom: 1px solid #e0e0e0;
-      padding: 10px 20px;
-      font-size: 13px;
-      color: #555;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .header-single-line a {
-      color: #724784;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    /* CONTENEDOR FIJO EN LA PARTE SUPERIOR */
-    .fixed-top-container {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background-color: #f4f5f7;
-      padding: 10px 15px 0 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     }
 
     .main-wrapper {
@@ -47,52 +29,132 @@
       margin: 0 auto;
     }
 
-    /* Bar de Búsqueda y Subtotal */
+    /* Header superior con gradiente y contenido delimitado */
+    .header-single-line {
+      background: var(--gradiente-marca);
+      color: #ffffff;
+      padding: 12px 20px;
+      font-size: 13px;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .header-single-line span {
+      color: #ffffff;
+    }
+
+    .header-single-line a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      opacity: 0.95;
+      transition: opacity 0.2s ease;
+    }
+
+    .header-single-line a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    /* CONTENEDOR FIJO SUPERIOR */
+    .fixed-top-container {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: #f4f5f7;
+      padding: 12px 15px 0 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Búsqueda y Subtotal */
     .top-controls {
       display: flex;
       gap: 12px;
       align-items: center;
     }
 
-    .search-input {
+    .search-wrapper {
       flex: 1;
-      padding: 10px 16px;
-      font-size: 14px;
+      display: flex;
+      align-items: center;
+      background-color: #ffffff;
       border: 2px solid #e0e0e0;
       border-radius: 8px;
+      padding: 2px 4px 2px 12px;
+      transition: border-color 0.2s ease;
+    }
+
+    .search-wrapper:focus-within {
+      border-color: var(--color-primario);
+    }
+
+    .search-icon {
+      width: 18px;
+      height: 18px;
+      fill: #888;
+      flex-shrink: 0;
+      margin-right: 8px;
+    }
+
+    .search-input {
+      flex: 1;
+      border: none;
       outline: none;
-      box-sizing: border-box;
-      background-color: #ffffff;
+      font-size: 14px;
+      padding: 8px 0;
+      font-family: inherit;
+      color: var(--color-texto);
+      background: transparent;
     }
 
-    .search-input:focus {
-      border-color: #724784;
+    .search-btn {
+      background-color: var(--color-primario);
+      color: #ffffff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
     }
 
-    /* Subtotal Flotante Fijo */
+    .search-btn:hover {
+      background-color: var(--color-secundario);
+    }
+
+    /* Subtotal Flotante (Gris inactivo / Fucsia activo) */
     .subtotal-badge {
-      background-color: #724784;
+      background-color: #777777;
       color: #ffffff;
       padding: 10px 16px;
       border-radius: 8px;
       font-size: 14px;
-      font-weight: bold;
+      font-weight: 700;
       white-space: nowrap;
       display: flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 2px 6px rgba(114, 71, 132, 0.2);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
 
-    /* Iluminado en #c20065 cuando hay suma activa */
     .subtotal-badge.active {
-      background-color: #c20065;
-      box-shadow: 0 0 12px rgba(194, 0, 101, 0.4);
+      background-color: var(--color-primario);
+      box-shadow: 0 0 12px rgba(181, 0, 91, 0.35);
     }
 
     .subtotal-count {
-      background-color: rgba(255, 255, 255, 0.2);
+      background-color: rgba(255, 255, 255, 0.25);
       padding: 2px 8px;
       border-radius: 12px;
       font-size: 12px;
@@ -118,8 +180,8 @@
 
     .cat-pill {
       background-color: #ffffff;
-      color: #724784;
-      border: 1px solid #724784;
+      color: var(--color-secundario);
+      border: 1px solid var(--color-secundario);
       padding: 6px 14px;
       border-radius: 20px;
       font-size: 12px;
@@ -127,20 +189,21 @@
       white-space: nowrap;
       cursor: pointer;
       transition: all 0.2s ease;
+      font-family: inherit;
     }
 
     .cat-pill:hover, .cat-pill.active {
-      background-color: #724784;
+      background-color: var(--color-secundario);
       color: #ffffff;
     }
 
-    /* Encabezado Fijo de la Tabla (Checkbox al final) */
+    /* Encabezado Fijo de la Tabla (En Fucsia INDABI) */
     .table-header-fixed {
       display: grid;
       grid-template-columns: 110px 2.5fr 1.5fr 1fr 1fr 50px;
-      background-color: #724784;
+      background-color: var(--color-primario);
       color: #ffffff;
-      font-weight: bold;
+      font-weight: 700;
       font-size: 12px;
       text-transform: uppercase;
       padding: 12px 15px;
@@ -162,6 +225,7 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
 
+    /* Alternancia de filas (Blanco y Gris clarito) */
     .row-item {
       display: grid;
       grid-template-columns: 110px 2.5fr 1.5fr 1fr 1fr 50px;
@@ -172,15 +236,23 @@
       transition: background-color 0.15s ease;
     }
 
+    .row-item:nth-child(even) {
+      background-color: #ffffff;
+    }
+
+    .row-item:nth-child(odd) {
+      background-color: #f9f9fb;
+    }
+
     .row-item:hover {
-      background-color: #f8eaf2;
+      background-color: #fce8f2 !important;
     }
 
     .row-item.selected {
-      background-color: #f0e1f3;
+      background-color: #f5d6e6 !important;
     }
 
-    /* Checkbox personalizado alineado a la derecha */
+    /* Checkbox personalizado */
     .col-check {
       text-align: right;
     }
@@ -188,26 +260,36 @@
     .item-checkbox {
       width: 18px;
       height: 18px;
-      accent-color: #c20065;
+      accent-color: var(--color-primario);
       cursor: pointer;
     }
 
     .precio-val {
-      font-weight: bold;
-      color: #724784;
+      font-weight: 700;
+      color: var(--color-secundario);
     }
 
-    /* Filas Divisoras de Sección */
+    /* Filas Divisoras de Sección (Rosado suave derivado) */
     .category-section-header {
-      background-color: #f0e6f3;
-      color: #724784;
+      background-color: var(--color-bg-rosado);
+      color: var(--color-secundario);
       font-size: 14px;
-      font-weight: bold;
+      font-weight: 700;
       padding: 12px 15px;
-      border-top: 2px solid #724784;
-      border-bottom: 2px solid #724784;
+      border-top: 2px solid var(--color-secundario);
+      border-bottom: 2px solid var(--color-secundario);
       text-transform: uppercase;
       scroll-margin-top: 140px;
+    }
+
+    .category-section-header.perfiles-fuxia {
+      color: var(--color-primario) !important;
+      border-top-color: var(--color-primario) !important;
+      border-bottom-color: var(--color-primario) !important;
+    }
+
+    .bold-determinacion {
+      font-weight: 700 !important;
     }
 
     /* Botón Volver Arriba */
@@ -217,7 +299,7 @@
       right: 25px;
       width: 44px;
       height: 44px;
-      background-color: #724784;
+      background-color: var(--color-secundario);
       color: #ffffff;
       border: none;
       border-radius: 50%;
@@ -277,7 +359,7 @@
         position: absolute;
         left: 0;
         font-weight: bold;
-        color: #724784;
+        color: var(--color-secundario);
         text-align: left;
       }
     }
@@ -286,15 +368,21 @@
 <body>
 
   <header class="header-single-line">
-    <span><strong>INDABI - División Veterinaria</strong> / Listado de Determinaciones y Tarifas Vigentes</span>
-    <a href="index.html">← Volver a la web</a>
+    <div class="main-wrapper header-inner">
+      <span><strong>INDABI - División Veterinaria</strong> / Listado de Determinaciones / Tipos de análsis y Tarifas Vigentes</span>
+      <a href="index.html">← Volver a la web</a>
+    </div>
   </header>
 
   <!-- CONTENEDOR FIJO QUE PERMANECE VISIBLE AL BAJAR -->
   <div class="fixed-top-container">
     <div class="main-wrapper">
       <div class="top-controls">
-        <input type="text" id="searchInput" class="search-input" placeholder="Buscar por sigla, determinación o categoría..." onkeyup="filterTable()">
+        <div class="search-wrapper">
+          <svg class="search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          <input type="text" id="searchInput" class="search-input" placeholder="Buscar por sigla, determinación o categoría..." onkeyup="filterTable()">
+          <button class="search-btn" onclick="filterTable()">Buscar</button>
+        </div>
         <div id="subtotalBadge" class="subtotal-badge">
           <span>Subtotal:</span>
           <span id="subtotalPrice">$0</span>
@@ -348,6 +436,7 @@
 
         let currentCategory = '';
         const categories = [];
+        let profileItemCounter = 0;
 
         rows.slice(1).forEach((row) => {
           if (!row || row.length < 5 || !row[1]) return;
@@ -362,6 +451,12 @@
             const subHeader = document.createElement('div');
             subHeader.id = catId;
             subHeader.className = 'category-section-header';
+            
+            // Fucsia exclusivo para la palabra "perfiles"
+            if (currentCategory.toLowerCase().includes('perfil')) {
+              subHeader.classList.add('perfiles-fuxia');
+            }
+            
             subHeader.innerText = currentCategory;
             container.appendChild(subHeader);
           }
@@ -374,9 +469,20 @@
           rowDiv.className = 'row-item';
           rowDiv.setAttribute('data-category', categoria);
 
+          // Aplicación de negrita a las primeras 18 determinaciones de Perfiles
+          let isProfileBold = false;
+          if (categoria.toLowerCase().includes('perfil')) {
+            profileItemCounter++;
+            if (profileItemCounter <= 18) {
+              isProfileBold = true;
+            }
+          }
+
+          const determinacionClass = isProfileBold ? 'bold-determinacion' : '';
+
           rowDiv.innerHTML = `
             <div data-label="Sigla"><strong>${row[1] || '-'}</strong></div>
-            <div data-label="Determinación">${row[2] || '-'}</div>
+            <div data-label="Determinación" class="${determinacionClass}">${row[2] || '-'}</div>
             <div data-label="Material">${row[3] || '-'}</div>
             <div data-label="Plazo">${row[4] || '-'}</div>
             <div data-label="Precio" class="precio-val">${precioFormatted}</div>
@@ -415,7 +521,6 @@
         row.classList.remove('selected');
       }
 
-      // Ilumina el box si hay al menos 1 ítem seleccionado
       if (selectedCount > 0) {
         badge.classList.add('active');
       } else {
