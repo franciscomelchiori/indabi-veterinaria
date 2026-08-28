@@ -62,32 +62,148 @@
       text-decoration: underline;
     }
 
-    /* CONTENEDOR FIJO SUPERIOR */
+    /* TÍTULO PRINCIPAL DE SECCIÓN */
+    .header-title-container {
+      padding: 20px 15px 10px 15px;
+      background-color: #f4f5f7;
+    }
+
+    .section-main-title {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--color-primario);
+      margin: 0;
+      letter-spacing: -0.5px;
+    }
+
+    /* CONTENEDOR FIJO SUPERIOR (STICKY) */
     .fixed-top-container {
       position: sticky;
       top: 0;
       z-index: 1000;
       background-color: #f4f5f7;
-      padding: 15px 15px 0 15px;
+      padding: 10px 15px 0 15px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      border-top: 0px solid transparent;
+      transition: border-top 0.2s ease;
     }
 
-    /* TÍTULO PRINCIPAL DE SECCIÓN */
-    .section-main-title {
-      font-size: 1.55rem;
-      font-weight: 800;
-      color: var(--color-primario);
-      margin: 0 0 15px 0;
-      letter-spacing: -0.5px;
+    /* BARRA DE SOPORTE VIOLETA AL ESCROLLEAR (7px Desktop) */
+    .fixed-top-container.scrolled {
+      border-top: 7px solid var(--color-secundario);
+      padding-top: 6px;
     }
 
-    /* SUBTÍTULO ÁREAS DIAGNÓSTICAS */
     .areas-diagnosticas-label {
-      font-size: 1.24rem; /* 20% más chico que 1.55rem */
+      font-size: 1.24rem;
       font-weight: 800;
       color: var(--color-secundario);
       text-transform: uppercase;
-      margin: 12px 0 6px 0;
+      margin: 0 0 6px 0;
+      transition: all 0.2s ease;
+    }
+
+    /* OCULTAR ETIQUETA AL ESCROLLEAR */
+    .fixed-top-container.scrolled .areas-diagnosticas-label {
+      display: none !important;
+    }
+
+    /* NAV CATEGORÍAS */
+    .categories-scroll-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin: 0 0 12px 0;
+    }
+
+    .categories-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 4px 0;
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .categories-menu::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .categories-menu::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 4px;
+    }
+
+    .scroll-arrow {
+      border: none;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 14px;
+      z-index: 2;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      transition: background-color 0.2s ease, transform 0.2s ease;
+      line-height: 1;
+    }
+
+    .scroll-arrow.left {
+      margin-right: 6px;
+      background-color: #cccccc;
+      color: #ffffff;
+      cursor: default;
+    }
+
+    .scroll-arrow.left.active {
+      background-color: var(--color-primario);
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    .scroll-arrow.left.active:hover {
+      background-color: var(--color-secundario);
+      transform: scale(1.08);
+    }
+
+    .scroll-arrow.right {
+      margin-left: 6px;
+      background-color: var(--color-primario);
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    .scroll-arrow.right:hover {
+      background-color: var(--color-secundario);
+      transform: scale(1.08);
+    }
+
+    .cat-pill {
+      background-color: var(--color-secundario);
+      color: #ffffff;
+      border: 1px solid var(--color-secundario);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      line-height: 1.2;
+    }
+
+    .cat-pill:hover, .cat-pill.active {
+      background-color: var(--color-primario);
+      border-color: var(--color-primario);
+      color: #ffffff;
     }
 
     /* CONTROLES BÚSQUEDA Y SUBTOTAL */
@@ -95,6 +211,7 @@
       display: flex;
       gap: 12px;
       align-items: center;
+      margin-bottom: 12px;
     }
 
     .search-wrapper {
@@ -129,6 +246,7 @@
       font-family: inherit;
       color: var(--color-texto);
       background: transparent;
+      min-width: 0;
     }
 
     .search-btn {
@@ -142,6 +260,8 @@
       cursor: pointer;
       transition: all 0.2s ease;
       font-family: inherit;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .search-btn:hover {
@@ -178,84 +298,25 @@
       font-size: 12px;
     }
 
-    /* MENÚ HORIZONTAL CATEGORÍAS CON SCROLL Y FLECHAS */
-    .categories-scroll-wrapper {
-      position: relative;
-      display: flex;
-      align-items: center;
-      margin: 6px 0 15px 0;
-    }
-
-    .categories-menu {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding: 4px 0;
-      scroll-behavior: smooth;
-      scrollbar-width: thin;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .categories-menu::-webkit-scrollbar {
-      height: 4px;
-    }
-
-    .categories-menu::-webkit-scrollbar-thumb {
-      background: #ccc;
-      border-radius: 4px;
-    }
-
-    .scroll-arrow {
-      background: var(--color-secundario);
-      color: #ffffff;
-      border: none;
-      border-radius: 50%;
-      width: 28px;
-      height: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 14px;
-      z-index: 2;
-      flex-shrink: 0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      transition: background-color 0.2s ease, transform 0.2s ease;
-    }
-
-    .scroll-arrow:hover {
-      background: var(--color-primario);
-      transform: scale(1.08);
-    }
-
-    .scroll-arrow.left { margin-right: 6px; }
-    .scroll-arrow.right { margin-left: 6px; }
-
-    .cat-pill {
-      background-color: var(--color-secundario);
-      color: #ffffff;
-      border: 1px solid var(--color-secundario);
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-      white-space: nowrap;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      font-family: inherit;
-    }
-
-    .cat-pill:hover, .cat-pill.active {
+    /* TABLA Y ENCABEZADOS DE TABLA (POSICIONADOS ARRIBA DE LA TABLA) */
+    .table-header-fixed {
+      display: grid;
+      grid-template-columns: 110px 2.5fr 1.5fr 1fr 1fr 50px;
       background-color: var(--color-primario);
-      border-color: var(--color-primario);
       color: #ffffff;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      padding: 12px 15px;
+      border-radius: 8px 8px 0 0;
+      letter-spacing: 0.5px;
+      align-items: center;
     }
 
-    /* BLOQUE INFORMATIVO FONDO BLANCO CON FILETE ROSA 2PX */
+    /* BLOQUE INFORMATIVO */
     .info-banner-ux {
       background-color: #ffffff;
-      border: 2px solid var(--color-primario);
+      border: 2px solid #dddddd;
       border-radius: 12px;
       padding: 16px 20px;
       margin-bottom: 20px;
@@ -269,16 +330,16 @@
       grid-template-columns: 1.2fr 1fr;
       gap: 15px;
       align-items: center;
-      border-bottom: 1px solid rgba(181, 0, 91, 0.15);
-      padding-bottom: 10px;
+      border-bottom: 1px solid #eeeeee;
+      padding-bottom: 12px;
     }
 
     .info-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      align-items: start;
       font-size: 0.88rem;
-      line-height: 1.35;
+      line-height: 1.4;
       color: #333333;
     }
 
@@ -290,13 +351,13 @@
       color: var(--color-primario);
       font-weight: 800;
       font-size: 1.1rem;
-      line-height: 1;
+      line-height: 1.2;
     }
 
     .info-contacts-box {
       font-size: 0.82rem;
       background: #f9f9fb;
-      padding: 8px 12px;
+      padding: 10px 14px;
       border-radius: 8px;
       border: 1px solid #e0e0e0;
     }
@@ -304,7 +365,7 @@
     .contacts-title {
       font-weight: 700;
       color: var(--color-secundario);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
       display: block;
     }
 
@@ -331,12 +392,18 @@
 
     .info-row-bottom {
       display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: #555555;
+    }
+
+    .info-bottom-split {
+      display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 10px;
-      font-size: 0.82rem;
-      color: #555555;
     }
 
     .vigencia-tag {
@@ -348,24 +415,9 @@
       border: 1px solid #e0e0e0;
     }
 
-    /* TABLA Y ENCABEZADOS */
-    .table-header-fixed {
-      display: grid;
-      grid-template-columns: 110px 2.5fr 1.5fr 1fr 1fr 50px;
-      background-color: var(--color-primario);
-      color: #ffffff;
-      font-weight: 700;
-      font-size: 12px;
-      text-transform: uppercase;
-      padding: 12px 15px;
-      border-radius: 8px 8px 0 0;
-      letter-spacing: 0.5px;
-      align-items: center;
-    }
-
     .container {
       max-width: 1100px;
-      margin: 0 auto 40px auto;
+      margin: 20px auto 40px auto;
       padding: 0 15px;
     }
 
@@ -409,7 +461,6 @@
       color: var(--color-secundario);
     }
 
-    /* FILAS DIVISORAS CON COLOR #926d96 */
     .category-section-header {
       background-color: var(--color-area-header);
       color: #ffffff;
@@ -421,7 +472,6 @@
       letter-spacing: 0.5px;
     }
 
-    /* BOTÓN SUBIR */
     .btn-scroll-top {
       position: fixed;
       bottom: 25px;
@@ -448,13 +498,37 @@
       visibility: visible;
     }
 
-    /* VISTA MÓVIL PANTALLA (< 768px) */
+    /* RESPONSIVE MOBILE */
     @media screen and (max-width: 768px) {
-      .table-header-fixed { display: none; }
-      .top-controls { flex-direction: column; align-items: stretch; }
+      .section-main-title {
+        font-size: 1.1rem;
+      }
+
+      .table-header-fixed { display: none !important; }
+
+      .fixed-top-container.scrolled {
+        border-top: 3px solid var(--color-secundario); /* 3px en Mobile */
+      }
+
+      .categories-scroll-wrapper {
+        margin-bottom: 8px;
+      }
+
+      .top-controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .search-wrapper {
+        padding: 4px 6px 4px 10px;
+      }
+
+      .search-input { font-size: 13px; }
+      .search-btn { padding: 6px 12px; font-size: 12px; }
       .subtotal-badge { justify-content: center; }
       .info-row-top { grid-template-columns: 1fr; }
 
+      /* TARJETAS MOBILE CON ETIQUETA FUCSIA Y LÍNEAS FINAS */
       .row-item {
         display: block;
         padding: 12px;
@@ -464,24 +538,39 @@
       }
 
       .row-item div {
-        margin-bottom: 4px;
+        margin-bottom: 6px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid #eeeeee;
         text-align: right;
         position: relative;
         padding-left: 40%;
       }
 
-      .row-item div.col-check { text-align: right; padding-left: 0; }
+      .row-item div:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .row-item div.col-check { 
+        text-align: right; 
+        padding-left: 0; 
+      }
+
       .row-item div::before {
         content: attr(data-label);
         position: absolute;
         left: 0;
-        font-weight: bold;
-        color: var(--color-secundario);
+        font-weight: 700;
+        color: var(--color-primario);
         text-align: left;
+      }
+
+      .category-section-header {
+        scroll-margin-top: 180px;
       }
     }
 
-    /* OPTIMIZACIÓN EXCLUSIVA PARA IMPRESIÓN / PDF */
     @media print {
       body { background-color: #ffffff; color: #000000; }
       .fixed-top-container { position: relative; box-shadow: none; padding: 0; }
@@ -507,7 +596,7 @@
       }
 
       .row-item div::before { display: none !important; }
-      .row-item div { text-align: left !important; padding-left: 0 !important; margin-bottom: 0 !important; }
+      .row-item div { text-align: left !important; padding-left: 0 !important; margin-bottom: 0 !important; border-bottom: none !important; }
       .category-section-header { 
         page-break-after: avoid; 
         break-after: avoid; 
@@ -517,7 +606,7 @@
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
-      .info-banner-ux { border: 2px solid #b5005b !important; background-color: #ffffff !important; }
+      .info-banner-ux { border: 2px solid #dddddd !important; background-color: #ffffff !important; }
     }
   </style>
 </head>
@@ -530,12 +619,21 @@
     </div>
   </header>
 
-  <!-- CONTENEDOR FIJO SUPERIOR -->
-  <div class="fixed-top-container">
+  <div class="header-title-container">
+    <div class="main-wrapper">
+      <h1 class="section-main-title">Listado de Determinaciones / Tipos de análisis y Tarifas Vigentes</h1>
+    </div>
+  </div>
+
+  <div id="stickyHeader" class="fixed-top-container">
     <div class="main-wrapper">
       
-      <!-- TÍTULO PRINCIPAL DE SECCIÓN -->
-      <h1 class="section-main-title">Listado de Determinaciones / Tipos de análisis y Tarifas Vigentes</h1>
+      <div class="areas-diagnosticas-label">ÁREAS DIAGNÓSTICAS</div>
+      <div class="categories-scroll-wrapper">
+        <button id="arrowLeft" class="scroll-arrow left" onclick="scrollMenu(-200)" aria-label="Desplazar izquierda">‹</button>
+        <div id="categoriesMenu" class="categories-menu"></div>
+        <button id="arrowRight" class="scroll-arrow right" onclick="scrollMenu(200)" aria-label="Desplazar derecha">›</button>
+      </div>
 
       <div class="top-controls">
         <div class="search-wrapper">
@@ -549,13 +647,15 @@
           <span id="subtotalCount" class="subtotal-count">0 ítems</span>
         </div>
       </div>
-      
-      <!-- ETIQUETA ÁREAS DIAGNÓSTICAS Y NAV CATEGORÍAS -->
-      <div class="areas-diagnosticas-label">ÁREAS DIAGNÓSTICAS</div>
-      <div class="categories-scroll-wrapper">
-        <button class="scroll-arrow left" onclick="scrollMenu(-200)" aria-label="Desplazar izquierda">‹</button>
-        <div id="categoriesMenu" class="categories-menu"></div>
-        <button class="scroll-arrow right" onclick="scrollMenu(200)" aria-label="Desplazar derecha">›</button>
+
+      <!-- ENCABEZADO DE TABLA (DENTRO DEL CONTENEDOR FIJO DEBAJO DEL BUSCADOR) -->
+      <div class="table-header-fixed">
+        <div>Sigla</div>
+        <div>Determinación</div>
+        <div>Material</div>
+        <div>Plazo</div>
+        <div>Precio</div>
+        <div style="text-align: right;">Sel.</div>
       </div>
 
     </div>
@@ -564,7 +664,6 @@
   <main class="container">
     <div class="main-wrapper">
 
-      <!-- BLOQUE INFORMATIVO FONDO BLANCO BORDER ROSA -->
       <section class="info-banner-ux">
         <div class="info-row-top">
           <div class="info-item">
@@ -591,29 +690,23 @@
         </div>
 
         <div class="info-row-bottom">
-          <div>
-            <span class="info-icon-arrow">→</span> <strong>Recibimos muestras entre las 7 y las 19 h.</strong> | Urquiza 934 - Gualeguaychú | www.indabi.com.ar
+          <div class="info-item">
+            <span class="info-icon-arrow">→</span>
+            <div><strong>Recibimos muestras entre las 7 y las 19 h.</strong> | Urquiza 934 - Gualeguaychú | www.indabi.com.ar</div>
           </div>
-          <div>
-            <span class="info-icon-arrow">→</span> <strong>Máxima celeridad:</strong> Entregamos resultados en el día salvo perfiles Tiroideos 6 y 7.
-          </div>
-          <div class="vigencia-tag">
-            Fecha de vigencia: 15/08/2026
+          
+          <div class="info-bottom-split">
+            <div class="info-item">
+              <span class="info-icon-arrow">→</span>
+              <div><strong>Máxima celeridad:</strong> Entregamos resultados en el día salvo perfiles Tiroideos 6 y 7.</div>
+            </div>
+            <div class="vigencia-tag">
+              Fecha de vigencia: 15/08/2026
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- ENCABEZADO DE TABLA -->
-      <div class="table-header-fixed">
-        <div>Sigla</div>
-        <div>Determinación</div>
-        <div>Material</div>
-        <div>Plazo</div>
-        <div>Precio</div>
-        <div style="text-align: right;">Sel.</div>
-      </div>
-
-      <!-- CUERPO DE TABLA -->
       <div id="tableBody" class="table-body-wrapper">
         <div style="padding: 30px; text-align: center; color: #666;">Cargando determinaciones...</div>
       </div>
@@ -638,6 +731,9 @@
         
         const container = document.getElementById('tableBody');
         const menuContainer = document.getElementById('categoriesMenu');
+        
+        if (!container || !menuContainer) return;
+
         container.innerHTML = '';
         menuContainer.innerHTML = '';
 
@@ -690,8 +786,14 @@
           menuContainer.appendChild(btn);
         });
 
+        updateArrowStates();
+
       } catch (error) {
         console.error('Error al cargar datos:', error);
+        const container = document.getElementById('tableBody');
+        if (container) {
+          container.innerHTML = '<div style="padding: 30px; text-align: center; color: var(--color-primario); font-weight: bold;">Error al cargar las determinaciones. Verificá que la planilla sea pública.</div>';
+        }
       }
     }
 
@@ -727,7 +829,22 @@
 
     function scrollMenu(offset) {
       const menu = document.getElementById('categoriesMenu');
-      if (menu) menu.scrollBy({ left: offset, behavior: 'smooth' });
+      if (menu) {
+        menu.scrollBy({ left: offset, behavior: 'smooth' });
+      }
+    }
+
+    function updateArrowStates() {
+      const menu = document.getElementById('categoriesMenu');
+      const arrowLeft = document.getElementById('arrowLeft');
+
+      if (!menu || !arrowLeft) return;
+
+      if (menu.scrollLeft > 10) {
+        arrowLeft.classList.add('active');
+      } else {
+        arrowLeft.classList.remove('active');
+      }
     }
 
     function filterTable() {
@@ -750,16 +867,31 @@
       });
     }
 
+    /* CONTROL DEL ESTADO SCROLLED PARA OCULTAR ÁREAS Y MOSTRAR BARRA VIOLETA */
     window.onscroll = function() {
+      const stickyHeader = document.getElementById('stickyHeader');
       const btn = document.getElementById('scrollTopBtn');
-      btn.classList.toggle('show', window.scrollY > 250);
+      
+      if (window.scrollY > 80) {
+        stickyHeader.classList.add('scrolled');
+      } else {
+        stickyHeader.classList.remove('scrolled');
+      }
+
+      if (btn) btn.classList.toggle('show', window.scrollY > 250);
     };
 
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    document.addEventListener('DOMContentLoaded', loadData);
+    document.addEventListener('DOMContentLoaded', () => {
+      loadData();
+      const menu = document.getElementById('categoriesMenu');
+      if (menu) {
+        menu.addEventListener('scroll', updateArrowStates);
+      }
+    });
   </script>
 </body>
 </html>
