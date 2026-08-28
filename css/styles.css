@@ -156,7 +156,7 @@ section {
     max-width: 1160px;
 }
 
-/* --- MENÚ DE NAVEGACIÓN DESKTOP Y CENTRADO FLEXIBLE --- */
+/* --- MENÚ DE NAVEGACIÓN DESKTOP Y DROPDOWN --- */
 .navbar-indabi {
   position: fixed;
   top: 0;
@@ -166,6 +166,7 @@ section {
   width: 100%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   padding: 8px 0;
+  overflow: visible;
 }
 
 .nav-container {
@@ -177,6 +178,7 @@ section {
   margin: 0 auto;
   padding: 0 20px;
   position: relative;
+  overflow: visible;
 }
 
 .nav-menu {
@@ -188,9 +190,14 @@ section {
   padding: 0;
   gap: 8px;
   width: 100%;
+  overflow: visible;
 }
 
-.nav-menu li a {
+.nav-menu li {
+  position: relative;
+}
+
+.nav-menu li a, .dropdown-toggle {
   text-decoration: none;
   color: var(--color-blanco);
   font-size: 0.82rem;
@@ -201,13 +208,18 @@ section {
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
 }
 
-.nav-menu li a:hover {
+.nav-menu li a:hover, .dropdown-toggle:hover {
   background-color: rgba(255, 255, 255, 0.15);
   color: var(--color-blanco);
 }
 
+/* ROLLOVER EN RESULTADOS ONLINE */
 .nav-menu li a.btn-resultados {
   background-color: var(--color-blanco);
   color: var(--color-secundario);
@@ -216,6 +228,76 @@ section {
   padding: 7px 16px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   border: 2px solid var(--color-blanco);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.nav-menu li a.btn-resultados:hover {
+  background-color: var(--color-secundario);
+  color: var(--color-blanco);
+}
+
+/* DROPDOWN DESKTOP Y PUENTE DE HOVER */
+.nav-dropdown {
+  position: relative;
+}
+
+.dropdown-chevron {
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  transition: transform 0.25s ease;
+  pointer-events: none;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--color-menu-mobile);
+  min-width: 210px;
+  list-style: none;
+  padding: 8px 0;
+  margin-top: 0;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  z-index: 1000000;
+}
+
+.nav-dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  display: block;
+}
+
+.dropdown-menu li a {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  color: var(--color-blanco);
+  font-size: 0.8rem;
+  border-radius: 0;
+  text-align: left;
+}
+
+.dropdown-menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+@media (min-width: 851px) {
+  .nav-dropdown:hover .dropdown-menu,
+  .nav-dropdown:focus-within .dropdown-menu {
+    display: block !important;
+  }
+
+  .nav-dropdown:hover .dropdown-chevron,
+  .nav-dropdown:focus-within .dropdown-chevron {
+    transform: rotate(180deg);
+  }
 }
 
 .nav-menu li.nav-right {
@@ -245,14 +327,6 @@ section {
   width: 16px;
   height: 16px;
   fill: currentColor;
-}
-
-.nav-icon-arrow {
-  display: none;
-  width: 16px;
-  height: 16px;
-  margin-right: 10px;
-  flex-shrink: 0;
 }
 
 .hamburger {
@@ -1418,9 +1492,10 @@ section {
     }
 
     .hamburger {
-      display: flex;
+      display: inline-flex;
+      flex-direction: row-reverse;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       background: rgba(255, 255, 255, 0.15);
       border: 1px solid rgba(255, 255, 255, 0.4);
       border-radius: 6px;
@@ -1429,9 +1504,26 @@ section {
       z-index: 1000000;
     }
 
-    .icono-nav-menu {
-      height: 18px;
-      width: auto;
+    .hamburger-icon-lines {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 18px;
+      height: 14px;
+    }
+
+    .hamburger-icon-lines span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background-color: var(--color-blanco);
+      border-radius: 2px;
+    }
+
+    .icono-nav-brand {
+      height: 20px;
+      width: 20px;
+      object-fit: contain;
     }
 
     .hamburger-label {
@@ -1447,8 +1539,8 @@ section {
       position: fixed;
       top: 0;
       right: 0;
-      width: 82vw;
-      max-width: 320px;
+      width: 85vw;
+      max-width: 340px;
       height: 100vh;
       background-color: var(--color-menu-mobile);
       flex-direction: column;
@@ -1474,7 +1566,7 @@ section {
       margin-top: 5px;
     }
 
-    .nav-menu li a {
+    .nav-menu li a, .dropdown-toggle {
       width: 100%;
       justify-content: flex-start;
       background-color: rgba(255, 255, 255, 0.1);
@@ -1483,13 +1575,54 @@ section {
       font-size: 0.85rem;
       text-transform: uppercase;
       color: var(--color-blanco);
+      white-space: normal;
+      line-height: 1.35;
     }
 
-    .nav-icon-arrow {
+    .nav-text-multiline {
       display: inline-block;
-      width: 18px;
-      height: 18px;
-      margin-right: 10px;
+      text-align: left;
+    }
+
+    /* DROPDOWN PATOLOGÍA EN MOBILE (ESTILO ACCORDEÓN) */
+    .nav-dropdown {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dropdown-toggle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .dropdown-chevron {
+      margin-left: auto;
+    }
+
+    .dropdown-menu {
+      position: static;
+      display: none;
+      box-shadow: none;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      margin-top: 6px;
+      padding: 4px 0 4px 12px;
+    }
+
+    .nav-dropdown.open .dropdown-menu {
+      display: block !important;
+    }
+
+    .nav-dropdown.open .dropdown-chevron {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-menu li a {
+      background: transparent;
+      padding: 10px 12px;
+      font-size: 0.8rem;
     }
 
     .box-consultoria {
@@ -1513,7 +1646,6 @@ section {
         margin-bottom: 0;
     }
 
-    /* AJUSTE PARA DESPEGAR LOS BOTONES DE APP STORE DEL FONDO GRIS EN MOBILE */
     .box-descarga-app {
         border-bottom: none;
         padding: 14px 14px 18px 14px;

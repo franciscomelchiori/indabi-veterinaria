@@ -44,11 +44,16 @@
 
   <!-- MENÚ DE NAVEGACIÓN RESPONSIVE -->
   <nav class="navbar-indabi">
-    <div class="container-1200 nav-container">
+    <div class="nav-container">
 
       <button class="hamburger" id="hamburger-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
-        <img src="img/icon-menu-hamburger.svg" alt="Menú" class="icono-nav-menu">
         <span class="hamburger-label">MENÚ DESPLEGABLE</span>
+        <img src="img/icon-menu-hamburger.svg" alt="Icono" class="icono-nav-brand">
+        <span class="hamburger-icon-lines">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
       </button>
 
       <ul class="nav-menu" id="nav-menu">
@@ -58,41 +63,46 @@
           </a>
         </li>
         <li>
-          <a href="https://drive.google.com/file/d/18u2f8UhVDl7lJGvGWsh6wVcKcOpRw-5o/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-            <svg class="nav-icon-arrow" viewBox="0 0 24 24"><path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-            <span>Determinaciones / Tipos de análisis</span>
+          <a href="determinaciones.html" target="_blank" rel="noopener noreferrer">
+            <span class="nav-text-multiline">Determinaciones / Tipos de análisis</span>
           </a>
         </li>
         <li>
           <a href="https://drive.google.com/file/d/1_VvMSSK98ax8zyy7nEI2j9gspe91o88e/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
-            <svg class="nav-icon-arrow" viewBox="0 0 24 24"><path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
             <span>Perfiles / Chequeos</span>
           </a>
         </li>
         <li>
           <a href="https://drive.google.com/file/d/1q-WfrkDrpGtywePKxyUpV2W57Q6QLNxW/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-            <svg class="nav-icon-arrow" viewBox="0 0 24 24"><path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
             <span>Toma de Muestras</span>
           </a>
         </li>
         <li>
           <a href="https://drive.google.com/file/d/1vx-gJ81zNkC73g_vnNNEk1bEYrdCTjo5/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-            <svg class="nav-icon-arrow" viewBox="0 0 24 24"><path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
             <span>Protocolo Envío</span>
           </a>
         </li>
-        <li>
-          <a href="https://drive.google.com/file/d/1OksMJKc54jAxmpWhZER-Qbl6w86fKIyv/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
-            <svg class="nav-icon-arrow" viewBox="0 0 24 24"><path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-            <span>Muestras Duchene</span>
-          </a>
+        
+        <!-- DROPDOWN PATOLOGÍA -->
+        <li class="nav-dropdown">
+          <button class="dropdown-toggle" id="dropdown-patologia-btn" aria-expanded="false">
+            <span>Patología</span>
+            <svg class="dropdown-chevron" viewBox="0 0 24 24"><path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="https://drive.google.com/file/d/1OksMJKc54jAxmpWhZER-Qbl6w86fKIyv/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                <span>Muestras patología</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://drive.google.com/file/d/1SvQ2b8V3gFN32kT55Cwy7vXK1cxahmrr/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <span>Protocolo patología</span>
+              </a>
+            </li>
+          </ul>
         </li>
-        <li>
-          <a href="https://drive.google.com/file/d/1SvQ2b8V3gFN32kT55Cwy7vXK1cxahmrr/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-            <svg class="nav-icon-arrow" viewBox="0 0 24 24"><path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-            <span>Protocolo Duchene</span>
-          </a>
-        </li>
+
         <li class="nav-right">
           <a href="#bloque-telefonos-ancla" class="btn-whatsapp-nav">
             <svg class="icono-wsp" viewBox="0 0 24 24">
@@ -235,11 +245,11 @@
                     <h2>Contamos con <strong>más determinaciones</strong> disponibles</h2>
                     <p>Seguimos ampliando nuestra <strong>capacidad diagnóstica</strong> para responder mejor a la práctica veterinaria de todos los días, con una oferta analítica cada vez más completa y mejor organizada.</p>
                     
-                    <a href="https://drive.google.com/file/d/18u2f8UhVDl7lJGvGWsh6wVcKcOpRw-5o/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-descarga-link">
+                    <a href="determinaciones.html" target="_blank" rel="noopener noreferrer" class="btn-descarga-link">
                         <svg class="icono-download" viewBox="0 0 24 24">
                             <path fill="currentColor" d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
                         </svg>
-                        <span>Descarga el listado actualizado<br>de determinaciones</span>
+                        <span>Ver el listado actualizado<br>de determinaciones</span>
                     </a>
                 </div>
 
@@ -531,7 +541,7 @@
 
     <hr class="linea-separadora-mobile">
 
-    <!-- BLOQUE 12: BANDA INFERIOR DUCHENNE + AGUAS DOBLE -->
+    <!-- BLOQUE 12: BANDA INFERIOR PATOLOGÍA + AGUAS DOBLE -->
     <section class="seccion-otras-tarjetas reveal-on-scroll">
         <div class="container-1200">
             <div class="indabi-grid-container grid-aguas-layout">
@@ -548,11 +558,11 @@
                         <div class="box-botones-duchenne">
                             <a href="https://drive.google.com/file/d/1OksMJKc54jAxmpWhZER-Qbl6w86fKIyv/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-doc-link">
                                 <svg viewBox="0 0 24 24"><path fill="currentColor" d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                                <span>Condiciones para envío de muestras Duchenne</span>
+                                <span>Condiciones para envío de muestras Patología</span>
                             </a>
                             <a href="https://drive.google.com/file/d/1SvQ2b8V3gFN32kT55Cwy7vXK1cxahmrr/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-doc-link">
                                 <svg viewBox="0 0 24 24"><path fill="currentColor" d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                                <span>Protocolo para remitir muestras Duchenne</span>
+                                <span>Protocolo para remitir muestras Patología</span>
                             </a>
                         </div>
                     </div>
@@ -771,6 +781,7 @@
       document.addEventListener('DOMContentLoaded', function() {
         var hamburgerBtn = document.getElementById('hamburger-btn');
         var navMenu = document.getElementById('nav-menu');
+        var dropdownBtn = document.getElementById('dropdown-patologia-btn');
 
         if (hamburgerBtn && navMenu) {
             hamburgerBtn.addEventListener('click', function(e) {
@@ -790,6 +801,24 @@
                 if (!navMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
                     navMenu.classList.remove('active');
                     hamburgerBtn.setAttribute('aria-expanded', 'false');
+                    
+                    if (dropdownBtn && window.innerWidth <= 850) {
+                        dropdownBtn.parentElement.classList.remove('open');
+                        dropdownBtn.setAttribute('aria-expanded', 'false');
+                    }
+                }
+            });
+        }
+
+        // CONTROL ACCORDEON SOLO EN MOBILE
+        if (dropdownBtn) {
+            dropdownBtn.addEventListener('click', function(e) {
+                if (window.innerWidth <= 850) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    var parentLi = this.parentElement;
+                    var isOpen = parentLi.classList.toggle('open');
+                    this.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
                 }
             });
         }
@@ -825,6 +854,5 @@
         });
       });
     </script>
-    
 </body>
 </html>
